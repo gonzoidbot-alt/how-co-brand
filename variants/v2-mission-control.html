@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#090b09">
+  <meta name="description" content="The How Company helps ambitious company builders turn possibility into progress. Executive coaching, growth alignment, revenue optimization, and market expansion.">
+  <title>how.co — Ambition, meet your how.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090b09;
+      --panel: #0e110d;
+      --ink: #edf0e8;
+      --muted: #8b9386;
+      --dim: #596252;
+      --line: #293024;
+      --green: #b3ff68;
+      --amber: #f4b75c;
+      --mono: 'JetBrains Mono', monospace;
+      --sans: 'Space Grotesk', sans-serif;
+      --gutter: clamp(22px, 4.5vw, 72px);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 110px; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+    body::after {
+      content: ""; position: fixed; inset: 0; z-index: 100;
+      pointer-events: none;
+      background: repeating-linear-gradient(0deg, transparent 0px, transparent 3px, rgba(173, 219, 138, .025) 3px, rgba(173, 219, 138, .025) 4px);
+    }
+    ::selection { background: var(--green); color: var(--bg); }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { cursor: pointer; }
+    button:disabled { cursor: default; }
+    a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 2px solid var(--amber); outline-offset: 5px;
+    }
+    button svg, a svg { flex-shrink: 0; }
+    svg { display: block; }
+    .wrap { width: min(100% - var(--gutter) * 2, 1320px); margin-inline: auto; }
+    .mono { font-family: var(--mono); }
+    .green { color: var(--green); }
+    .amber { color: var(--amber); }
+    .eyebrow { font: 400 10px/1.6 var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+    .status-dot { width: 6px; height: 6px; display: inline-block; background: var(--green); box-shadow: 0 0 10px #b3ff6833; flex-shrink: 0; }
+    .skip-link { position: fixed; top: -80px; left: 20px; padding: 14px; z-index: 200; background: var(--green); color: var(--bg); }
+    .skip-link:focus { top: 12px; }
+    .site-header { position: sticky; top: 0; z-index: 30; background: rgba(9, 11, 9, .95); border-bottom: 1px solid var(--line); backdrop-filter: blur(16px); }
+    .header-inner { min-height: 88px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-mark { color: var(--green); width: 29px; height: 29px; }
+    .wordmark { font-size: 30px; line-height: 1; font-weight: 700; letter-spacing: -1.9px; }
+    .brand-caption { padding-left: 22px; margin-left: 12px; border-left: 1px solid var(--line); font: 9px/1.65 var(--mono); letter-spacing: .08em; color: var(--muted); }
+    .nav { display: flex; align-items: center; gap: 34px; }
+    .nav-link { font: 10px/1.5 var(--mono); text-transform: uppercase; letter-spacing: .04em; color: #bac0b4; transition: color .2s; }
+    .nav-link span { color: var(--dim); margin-right: 7px; }
+    .nav-link:hover, .nav-link[aria-current="location"] { color: var(--green); }
+    .contact-nav { background: transparent; color: var(--ink); border: 1px solid #58604f; padding: 13px 17px; font: 10px/1.4 var(--mono); display: inline-flex; align-items: center; gap: 24px; text-transform: uppercase; transition: border-color .2s, color .2s; }
+    .contact-nav:hover { border-color: var(--green); color: var(--green); }
+    .menu-toggle { display: none; background: none; border: 1px solid var(--line); color: var(--green); padding: 10px; font: 11px var(--mono); }
+    .system-line { display: flex; justify-content: space-between; gap: 20px; padding: 26px 0; color: var(--dim); font: 9px/1.5 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
+    .system-line .system-status { color: var(--muted); display: flex; align-items: center; gap: 10px; }
+    .hero { overflow: hidden; }
+    .hero-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: 30px; align-items: center; padding: 36px 0 66px; }
+    .boot-command { font: 12px/1.5 var(--mono); color: var(--green); margin-bottom: 28px; display: flex; align-items: center; gap: 10px; min-height: 18px; }
+    .boot-command .dollar { color: var(--dim); }
+    .boot-command .version { font-size: 9px; color: var(--dim); margin-left: 8px; }
+    h1 { margin: 0; font-size: clamp(64px, 7.2vw, 106px); line-height: .99; letter-spacing: -.065em; font-weight: 600; }
+    h1 .headline-line { display: block; animation: headline-in .75s both; }
+    h1 .headline-line:nth-child(2) { animation-delay: .1s; }
+    h1 .headline-line:nth-child(3) { animation-delay: .2s; }
+    .cursor { display: inline-block; width: .22em; height: .73em; background: var(--green); margin-left: .12em; animation: blink 1.2s step-end infinite; vertical-align: -.015em; }
+    .hero-description { color: #a1a899; font-size: 16px; line-height: 1.7; max-width: 420px; margin: 28px 0 28px; }
+    .hero-description strong { font-weight: 400; color: var(--ink); }
+    .hero-actions { display: flex; align-items: center; gap: 27px; flex-wrap: wrap; }
+    .button { display: inline-flex; align-items: center; justify-content: space-between; gap: 32px; padding: 18px 22px; min-height: 52px; background: var(--green); color: #142009; border: 1px solid var(--green); font: 600 11px/1.4 var(--mono); letter-spacing: .02em; text-transform: uppercase; transition: background .2s, box-shadow .2s, transform .2s; }
+    .button:hover { background: #c8ff94; box-shadow: 0 0 30px #b3ff6812; transform: translateY(-2px); }
+    .text-link { font: 10px/1.6 var(--mono); text-transform: uppercase; letter-spacing: .02em; display: inline-flex; align-items: center; gap: 13px; color: #a8b09e; transition: color .2s; }
+    .text-link:hover { color: var(--green); }
+    .hero-visual { position: relative; margin-top: 16px; min-width: 0; }
+    .visual-top { display: flex; align-items: center; justify-content: space-between; font: 9px/1.5 var(--mono); color: var(--muted); letter-spacing: .04em; padding-inline: 16px; }
+    .visual-top .amber { display: flex; align-items: center; gap: 7px; }
+    .visual-top .amber::before { content: ""; width: 4px; height: 4px; background: var(--amber); }
+    .radar { width: 100%; height: auto; margin-block: 14px 0; overflow: visible; }
+    .radar text { font-family: var(--mono); }
+    .radar-sweep { transform-origin: 270px 242px; animation: sweep 24s linear infinite; }
+    .signal-pulse { transform-box: fill-box; transform-origin: center; animation: pulse 3.2s ease-out infinite; }
+    .signal-pulse.second { animation-delay: 1.6s; }
+    .radar-paused .radar-sweep, .radar-paused .signal-pulse { animation-play-state: paused; }
+    .visual-bottom { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--line); padding: 13px 0 0; margin: -5px 16px 0; color: var(--dim); font: 8px/1.5 var(--mono); letter-spacing: .04em; }
+    .radar-control { color: var(--muted); background: none; border: 0; padding: 5px 0 5px 10px; font: 8px/1.5 var(--mono); display: inline-flex; align-items: center; gap: 7px; }
+    .radar-control:hover { color: var(--green); }
+    .radar-control .pause-symbol { width: 6px; height: 7px; border-inline: 2px solid currentColor; }
+    .radar-control[aria-pressed="true"] .pause-symbol { width: 0; height: 0; border: 4px solid transparent; border-right: 0; border-left: 6px solid currentColor; }
+    .metrics { border-block: 1px solid var(--line); display: grid; grid-template-columns: repeat(4, 1fr); }
+    .metric { padding: 26px 26px 25px; border-right: 1px solid var(--line); position: relative; }
+    .metric:first-child { padding-left: 0; }
+    .metric:last-child { border-right: 0; }
+    .metric-top { display: flex; align-items: flex-start; justify-content: space-between; }
+    .metric-value { font: 400 38px/1.15 var(--mono); letter-spacing: -.08em; }
+    .metric-index { color: var(--dim); font: 8px/1.5 var(--mono); }
+    .metric-label { font: 9px/1.5 var(--mono); color: var(--muted); text-transform: uppercase; letter-spacing: .07em; margin-top: 12px; }
+    .metric-bars { display: flex; align-items: end; gap: 3px; height: 15px; position: absolute; right: 27px; bottom: 28px; }
+    .metric-bars i { width: 3px; background: #455d32; }
+    .metric-bars i:last-child { background: var(--green); }
+    .section { padding-block: 100px; }
+    .section-tag { font: 10px/1.5 var(--mono); text-transform: uppercase; letter-spacing: .07em; color: var(--muted); display: flex; align-items: center; gap: 14px; margin: 0 0 28px; }
+    .section-tag .tag-cross { color: var(--green); font-size: 16px; line-height: 1; }
+    .section-tag .section-number { color: var(--green); }
+    .section-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 70px; margin-bottom: 42px; }
+    h2 { margin: 0; font-weight: 500; font-size: clamp(38px, 4.4vw, 62px); line-height: 1.06; letter-spacing: -.05em; }
+    .section-intro { max-width: 365px; margin: 0 0 3px; color: var(--muted); font-size: 15px; line-height: 1.75; }
+    .modules { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); align-items: stretch; }
+    .module { display: flex; flex-direction: column; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 25px 25px 0; background: var(--panel); position: relative; transition: background .25s; min-width: 0; }
+    .module:hover { background: #131a0e; }
+    .module::before { content: ""; position: absolute; top: -1px; left: -1px; height: 1px; width: 30px; background: var(--green); transition: width .3s; }
+    .module:hover::before { width: calc(100% + 1px); }
+    .module-meta { display: flex; justify-content: space-between; align-items: center; font: 9px/1.6 var(--mono); color: var(--green); letter-spacing: .06em; }
+    .module-meta .module-status { width: 5px; height: 5px; border: 1px solid var(--dim); }
+    .module:hover .module-status { background: var(--green); border-color: var(--green); }
+    .module-illustration { height: 122px; display: flex; align-items: center; padding: 22px 0 12px; }
+    .module-illustration svg { height: 79px; width: 112px; color: var(--green); }
+    .module:nth-child(3) .module-illustration svg { color: var(--amber); }
+    .module-category { color: var(--dim); text-transform: uppercase; font: 8px/1.65 var(--mono); letter-spacing: .035em; min-height: 26px; margin: 0; }
+    .module h3 { font-size: clamp(22px, 2.1vw, 29px); font-weight: 500; line-height: 1.13; letter-spacing: -.035em; margin: 8px 0 17px; }
+    .module-description { color: var(--muted); font-size: 13px; line-height: 1.75; margin: 0 0 27px; flex-grow: 1; }
+    .module details { border-top: 1px solid var(--line); margin-top: auto; }
+    .module summary { list-style: none; cursor: pointer; padding: 18px 0; font: 9px/1.6 var(--mono); text-transform: uppercase; color: #adb6a3; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .module summary::-webkit-details-marker { display: none; }
+    .module summary::after { content: "+"; color: var(--green); font-size: 17px; font-weight: 400; line-height: 1; }
+    .module details[open] summary::after { content: "−"; }
+    .module details[open] summary { color: var(--green); }
+    .playbook { padding: 0 0 21px; }
+    .playbook .playbook-label { color: var(--amber); font: 8px/1.5 var(--mono); letter-spacing: .08em; margin: 0 0 11px; text-transform: uppercase; }
+    .playbook ul { list-style: none; padding: 0; margin: 0; color: var(--muted); font: 10px/1.7 var(--mono); }
+    .playbook li { position: relative; padding-left: 13px; margin: 8px 0; }
+    .playbook li::before { content: "›"; position: absolute; left: 0; color: var(--green); }
+    .modules-note { margin-top: 19px; display: flex; justify-content: space-between; gap: 20px; font: 9px/1.6 var(--mono); color: var(--dim); }
+    .modules-note .note-key { color: var(--green); margin-right: 9px; }
+    .manifesto { border-block: 1px solid var(--line); position: relative; padding-block: 74px; }
+    .manifesto-grid { display: grid; grid-template-columns: .75fr 1.25fr; gap: 80px; }
+    .log-heading { font: 10px/1.6 var(--mono); letter-spacing: .06em; color: var(--amber); margin: 0 0 28px; }
+    .log-subject { font-size: 32px; font-weight: 500; line-height: 1.15; letter-spacing: -.045em; margin: 0 0 40px; }
+    .log-meta { font: 9px/1.9 var(--mono); color: var(--dim); margin: 0; }
+    .log-meta span { color: #9aa48e; }
+    .signal { display: flex; align-items: center; gap: 3px; height: 35px; margin-top: 32px; }
+    .signal i { width: 3px; background: var(--amber); opacity: .7; }
+    .manifesto-copy { padding-top: 0; }
+    .transmission-marker { font: 9px/1.6 var(--mono); color: var(--dim); letter-spacing: .055em; margin: 0 0 24px; }
+    .manifesto-copy .statement { font-size: clamp(22px, 2.5vw, 35px); line-height: 1.45; letter-spacing: -.035em; font-weight: 400; margin: 0 0 24px; color: #a8b09e; }
+    .manifesto-copy .statement strong { color: var(--ink); font-weight: 400; }
+    .manifesto-copy .belief { max-width: 620px; font-size: 15px; line-height: 1.85; color: var(--muted); margin: 0 0 32px; }
+    .manifesto-copy .signature { border-left: 2px solid var(--green); padding-left: 22px; margin: 0; font-size: 24px; line-height: 1.5; letter-spacing: -.03em; }
+    .transmission-end { margin: 30px 0 0; color: var(--dim); font: 9px/1.6 var(--mono); }
+    .approach { padding-block: 90px; }
+    .approach-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 35px; gap: 30px; }
+    .approach-head .section-tag { margin: 0; }
+    .approach-head .eyebrow { color: var(--dim); }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 38px; }
+    .step { border-top: 1px solid var(--line); padding-top: 22px; }
+    .step-top { display: flex; align-items: center; justify-content: space-between; color: var(--dim); font: 10px/1.5 var(--mono); }
+    .step-top .step-index { color: var(--amber); }
+    .step h3 { font-size: 24px; font-weight: 500; letter-spacing: -.025em; margin: 23px 0 11px; }
+    .step p { color: var(--muted); font-size: 14px; line-height: 1.75; max-width: 330px; margin: 0; }
+    .contact-section { position: relative; background: #11170d; border: 1px solid #3c4b30; padding: 54px 55px 48px; overflow: hidden; margin-bottom: 80px; }
+    .contact-section::before, .contact-section::after { content: ""; position: absolute; width: 13px; height: 13px; pointer-events: none; border-color: var(--green); border-style: solid; }
+    .contact-section::before { left: -1px; top: -1px; border-width: 2px 0 0 2px; }
+    .contact-section::after { right: -1px; bottom: -1px; border-width: 0 2px 2px 0; }
+    .contact-grid-bg { position: absolute; inset: 0 0 0 45%; opacity: .3; background-image: linear-gradient(#34412b 1px, transparent 1px), linear-gradient(90deg, #34412b 1px, transparent 1px); background-size: 36px 36px; mask-image: linear-gradient(90deg, transparent, #000); pointer-events: none; }
+    .contact-layout { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; position: relative; }
+    .contact-section .section-tag { font-size: 9px; margin-bottom: 25px; }
+    .contact-section h2 { font-size: clamp(43px, 5.4vw, 76px); line-height: 1.02; font-weight: 500; letter-spacing: -.06em; }
+    .contact-section h2 span { color: var(--green); }
+    .contact-aside { max-width: 300px; padding-bottom: 5px; }
+    .contact-aside p { font-size: 14px; line-height: 1.75; color: #a2ad97; margin: 0 0 26px; }
+    .contact-aside .button { width: 100%; }
+    .contact-aside .contact-note { margin: 14px 0 0; font: 8px/1.5 var(--mono); color: var(--dim); text-align: center; }
+    .contact-terminal { color: var(--dim); font: 9px/1.5 var(--mono); border-top: 1px solid #34412b; padding-top: 20px; margin-top: 38px; position: relative; display: flex; justify-content: space-between; gap: 20px; }
+    .contact-terminal span:first-child { color: #93a87f; }
+    .footer { padding-bottom: 27px; }
+    .footer-main { display: flex; align-items: center; justify-content: space-between; gap: 25px; padding: 0 0 26px; }
+    .footer-prompt { display: flex; align-items: center; gap: 17px; }
+    .footer-logo { font: 600 19px/1.5 var(--mono); letter-spacing: -.065em; }
+    .footer-logo .footer-cursor { font-size: 14px; color: var(--green); }
+    .copyright { color: var(--dim); font: 9px/1.6 var(--mono); }
+    .back-top { font: 9px/1.5 var(--mono); text-transform: uppercase; display: flex; align-items: center; gap: 14px; color: var(--muted); }
+    .back-top:hover { color: var(--green); }
+    .footer-bottom { border-top: 1px solid var(--line); padding-top: 17px; display: flex; justify-content: space-between; color: var(--dim); font: 8px/1.6 var(--mono); letter-spacing: .05em; }
+    .footer-bottom .local-clock { font-variant-numeric: tabular-nums; }
+    .js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+    .js .reveal.is-visible { opacity: 1; transform: translateY(0); }
+    dialog { width: min(560px, calc(100% - 32px)); max-height: calc(100dvh - 48px); margin: auto; background: var(--bg); color: var(--ink); border: 1px solid #4b5d3b; padding: 0; box-shadow: 0 30px 120px #000a; }
+    dialog::backdrop { background: #020402dd; backdrop-filter: blur(8px); }
+    .dialog-bar { padding: 16px 23px; display: flex; align-items: center; justify-content: space-between; gap: 10px; border-bottom: 1px solid var(--line); color: var(--green); font: 9px/1.5 var(--mono); }
+    .dialog-close { background: none; color: var(--muted); border: none; padding: 5px; font: 18px/1 var(--mono); }
+    .dialog-close:hover { color: var(--green); }
+    .dialog-content { padding: 32px; }
+    .dialog-content h2 { font-size: 36px; margin: 0 0 13px; }
+    .dialog-content > p { color: var(--muted); font-size: 14px; line-height: 1.7; margin: 0 0 27px; }
+    .form-field { display: block; margin-bottom: 20px; }
+    .form-field > span { display: block; font: 9px/1.6 var(--mono); text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+    .form-field input, .form-field textarea { display: block; width: 100%; background: var(--panel); border: 1px solid #34412b; border-radius: 0; color: var(--ink); padding: 12px; font: 12px/1.7 var(--mono); }
+    .form-field input::placeholder, .form-field textarea::placeholder { color: var(--dim); opacity: 1; }
+    .form-field textarea { resize: vertical; min-height: 90px; }
+    .form-help { font: 9px/1.7 var(--mono); color: var(--dim); margin: 16px 0 0; }
+    #contact-form .button { width: 100%; }
+    .form-result { margin-top: 20px; border-left: 2px solid var(--green); padding-left: 16px; color: var(--muted); font: 11px/1.8 var(--mono); }
+    .form-result a { color: var(--green); text-decoration: underline; text-underline-offset: 4px; }
+    @keyframes blink { 0%, 55% { opacity: 1; } 56%, 100% { opacity: 0; } }
+    @keyframes headline-in { from { opacity: 0; transform: translateY(12px); clip-path: inset(0 100% 0 0); } to { opacity: 1; transform: translateY(0); clip-path: inset(0 0 0 0); } }
+    @keyframes sweep { to { transform: rotate(360deg); } }
+    @keyframes pulse { 0% { opacity: .6; transform: scale(.65); } 80%, 100% { opacity: 0; transform: scale(2.1); } }
+    @media (min-width: 1500px) { .hero-grid { padding-block: 54px 82px; } }
+    @media (max-width: 1100px) {
+      .brand-caption { display: none; }
+      .hero-grid { gap: 8px; }
+      h1 { font-size: clamp(62px, 7.5vw, 90px); }
+      .hero-actions { gap: 20px; }
+      .hero-actions .button { padding-inline: 17px; gap: 22px; }
+      .module { padding: 22px 19px 0; }
+      .module h3 { font-size: 24px; }
+      .module-category { font-size: 7px; }
+      .module-description { font-size: 12px; }
+      .metric-bars { display: none; }
+      .contact-section { padding: 42px 38px 34px; }
+      .contact-aside { max-width: 270px; }
+      .manifesto-grid { gap: 50px; }
+    }
+    @media (max-width: 850px) {
+      .header-inner { min-height: 76px; }
+      .nav { gap: 23px; }
+      .hero-grid { grid-template-columns: 1.05fr 1fr; padding-top: 25px; padding-bottom: 45px; }
+      h1 { font-size: clamp(51px, 7.3vw, 69px); }
+      .hero-description { font-size: 14px; max-width: 340px; margin-block: 23px; }
+      .hero-actions { align-items: flex-start; flex-direction: column; gap: 17px; }
+      .hero-visual { margin-right: -15px; }
+      .visual-top { font-size: 7px; padding-inline: 9px; }
+      .visual-top .amber { font-size: 6px; gap: 5px; }
+      .visual-bottom { font-size: 6px; margin-inline: 9px; }
+      .radar-control { font-size: 6px; gap: 4px; }
+      .section { padding-block: 75px; }
+      .section-heading { gap: 40px; align-items: flex-start; }
+      .section-intro { max-width: 280px; font-size: 13px; }
+      .modules { grid-template-columns: repeat(2, 1fr); }
+      .module { padding: 25px 25px 0; }
+      .module h3 { font-size: 29px; }
+      .module-category { font-size: 9px; }
+      .module-description { font-size: 14px; max-width: 300px; }
+      .module-illustration { height: 120px; }
+      .manifesto-grid { grid-template-columns: .75fr 1.25fr; gap: 35px; }
+      .log-heading { font-size: 8px; }
+      .log-subject { font-size: 28px; }
+      .manifesto-copy .statement { font-size: 26px; }
+      .steps { gap: 23px; }
+      .step h3 { font-size: 21px; }
+      .step p { font-size: 13px; }
+      .contact-layout { align-items: flex-start; flex-direction: column; gap: 30px; }
+      .contact-aside { max-width: none; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 0 40px; align-items: center; }
+      .contact-aside p { margin: 0; }
+      .contact-aside .contact-note { grid-column: 2; }
+      .contact-section h2 { font-size: 62px; }
+      .contact-grid-bg { inset-inline-start: 25%; }
+    }
+    @media (max-width: 600px) {
+      html { scroll-padding-top: 92px; }
+      .header-inner { min-height: 72px; }
+      .wordmark { font-size: 28px; }
+      .brand-mark { width: 25px; height: 25px; }
+      .menu-toggle { display: inline-flex; }
+      .nav { display: none; position: absolute; top: 72px; left: 0; right: 0; background: var(--bg); padding: 25px var(--gutter); border-bottom: 1px solid var(--line); flex-direction: column; align-items: stretch; gap: 25px; }
+      .nav.is-open { display: flex; }
+      .nav-link { font-size: 12px; }
+      .contact-nav { justify-content: space-between; }
+      .system-line { font-size: 7px; padding-block: 19px; gap: 10px; }
+      .system-line .system-status { gap: 6px; font-size: 7px; }
+      .system-line .system-label { max-width: 170px; }
+      .status-dot { width: 4px; height: 4px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 35px; padding-top: 20px; padding-bottom: 35px; }
+      .boot-command { font-size: 11px; margin-bottom: 24px; }
+      h1 { font-size: clamp(60px, 13vw, 82px); line-height: .99; }
+      .hero-description { font-size: 15px; max-width: 390px; margin-block: 26px; }
+      .hero-actions { flex-direction: row; align-items: center; flex-wrap: wrap; gap: 22px; }
+      .hero-actions .button { font-size: 10px; padding-inline: 17px; gap: 18px; }
+      .hero-actions .text-link { font-size: 9px; gap: 8px; }
+      .hero-visual { width: 100%; max-width: 430px; margin: 5px auto 0; }
+      .visual-top { font-size: 8px; }
+      .visual-top .amber { font-size: 8px; }
+      .visual-bottom { font-size: 7px; }
+      .radar-control { font-size: 7px; }
+      .metrics { grid-template-columns: repeat(2, 1fr); }
+      .metric { padding: 22px 20px; }
+      .metric:first-child { padding-left: 20px; }
+      .metric:nth-child(2) { border-right: 0; }
+      .metric:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .metric-value { font-size: 34px; }
+      .metric-label { font-size: 8px; }
+      .metric-bars { display: flex; right: 20px; bottom: 25px; }
+      .section { padding-block: 65px; }
+      .section-tag { font-size: 9px; margin-bottom: 23px; gap: 10px; }
+      .section-heading { flex-direction: column; gap: 23px; margin-bottom: 30px; }
+      h2 { font-size: 42px; }
+      .section-intro { font-size: 14px; max-width: 360px; }
+      .modules { grid-template-columns: 1fr; }
+      .module { padding: 24px 24px 0; }
+      .module-illustration { height: 104px; }
+      .module h3 { font-size: 31px; }
+      .module h3 br { display: none; }
+      .module-description { max-width: 100%; margin-bottom: 25px; }
+      .module-category { min-height: auto; }
+      .module-illustration svg { height: 70px; }
+      .module summary { font-size: 10px; padding-block: 20px; }
+      .playbook ul { font-size: 11px; }
+      .modules-note { font-size: 8px; }
+      .modules-note > span:last-child { display: none; }
+      .manifesto { padding-block: 50px; }
+      .manifesto-grid { grid-template-columns: 1fr; gap: 36px; }
+      .log-heading { font-size: 9px; margin-bottom: 17px; }
+      .log-subject { font-size: 32px; margin-bottom: 17px; }
+      .log-subject br { display: none; }
+      .log-meta { font-size: 8px; }
+      .signal { display: none; }
+      .manifesto-copy .statement { font-size: 27px; }
+      .manifesto-copy .belief { font-size: 14px; }
+      .manifesto-copy .signature { font-size: 23px; padding-left: 18px; }
+      .approach { padding-block: 60px; }
+      .approach-head { margin-bottom: 28px; }
+      .approach-head > .eyebrow { display: none; }
+      .steps { grid-template-columns: 1fr; gap: 30px; }
+      .step { padding-top: 18px; }
+      .step h3 { font-size: 25px; margin-top: 17px; }
+      .step p { font-size: 14px; max-width: 100%; }
+      .contact-section { padding: 30px 24px 23px; margin-bottom: 43px; }
+      .contact-section h2 { font-size: clamp(39px, 9.6vw, 56px); }
+      .contact-section .section-tag { font-size: 8px; }
+      .contact-aside { display: block; }
+      .contact-aside p { margin-bottom: 24px; }
+      .contact-aside .contact-note { margin: 14px 0 0; }
+      .contact-terminal { font-size: 7px; margin-top: 28px; }
+      .contact-terminal span:last-child { display: none; }
+      .footer-main { align-items: flex-start; gap: 16px; }
+      .footer-prompt { display: block; }
+      .copyright { display: block; margin-top: 7px; font-size: 8px; }
+      .back-top { font-size: 8px; padding-top: 7px; }
+      .footer-bottom { font-size: 7px; gap: 20px; }
+      .dialog-content { padding: 25px; }
+      .dialog-content h2 { font-size: 31px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .js .reveal { opacity: 1; transform: none; }
+      .cursor { opacity: 1; }
+      .signal-pulse { opacity: .2; }
+      .button:hover { transform: none; }
+    }
+  </style>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="how.co — The How Company, home">
+        <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <path d="M1 11V1h10M21 1h10v10M31 21v10H21M11 31H1V21" stroke="currentColor" stroke-width="2"/>
+          <path d="M9 23 23 9M11 9h12v12" stroke="currentColor" stroke-width="3"/>
+        </svg>
+        <span class="wordmark">how.co</span>
+        <span class="brand-caption">THE HOW<br>COMPANY</span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="navigation">[ MENU + ]</button>
+      <nav class="nav" id="navigation" aria-label="Main navigation">
+        <a class="nav-link" href="#mission"><span>01</span>The mission</a>
+        <a class="nav-link" href="#framework"><span>02</span>The system</a>
+        <button class="contact-nav" type="button" data-contact>Make contact <span class="green" aria-hidden="true">↗</span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="system-line">
+        <span class="system-label">// INDEPENDENT THINKING. EXPONENTIAL POSSIBILITY.</span>
+        <span class="system-status"><span class="status-dot" aria-hidden="true"></span>ALL SYSTEMS GO <span class="green">[ OK ]</span></span>
+      </div>
+
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="boot-command" aria-label="System command: HOW initialize">
+            <span class="dollar" aria-hidden="true">$</span>
+            <span id="boot-text" aria-hidden="true">HOW --init</span>
+            <span class="version" aria-hidden="true">v.2026</span>
+          </div>
+          <h1 id="hero-title">
+            <span class="headline-line">AMBITION.</span>
+            <span class="headline-line">MEET YOUR</span>
+            <span class="headline-line green">HOW.<span class="cursor" aria-hidden="true"></span></span>
+          </h1>
+          <p class="hero-description">You know where you want to go.<br>We help you work out <strong>how to get there.</strong><br>Strategic growth for ambitious company builders.</p>
+          <div class="hero-actions">
+            <button class="button" type="button" data-contact>
+              Initialize growth
+              <svg width="15" height="15" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 16 16 4M4 4h12v12" stroke="currentColor" stroke-width="1.5"/></svg>
+            </button>
+            <a class="text-link" href="#framework">Explore the system <span class="green" aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+
+        <div class="hero-visual" id="growth-radar">
+          <div class="visual-top">
+            <span>GROWTH TRAJECTORY / 001</span>
+            <span class="amber">LIVE SIMULATION</span>
+          </div>
+          <svg class="radar" viewBox="0 0 540 480" role="img" aria-labelledby="radar-title radar-desc">
+            <title id="radar-title">A clear trajectory from ambition to growth</title>
+            <desc id="radar-desc">A mission-control radar plots an upward path through clarity, alignment, and momentum, toward a green target.</desc>
+            <defs>
+              <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#263220" stroke-width=".65"/></pattern>
+              <radialGradient id="grid-fade"><stop offset="0" stop-color="white"/><stop offset=".74" stop-color="white" stop-opacity=".8"/><stop offset="1" stop-color="white" stop-opacity="0"/></radialGradient>
+              <mask id="grid-mask"><rect width="540" height="480" fill="url(#grid-fade)"/></mask>
+              <radialGradient id="radar-glow"><stop stop-color="#aaff68" stop-opacity=".05"/><stop offset="1" stop-color="#aaff68" stop-opacity="0"/></radialGradient>
+              <linearGradient id="trajectory-fill" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#b3ff68" stop-opacity=".13"/><stop offset="1" stop-color="#b3ff68" stop-opacity="0"/></linearGradient>
+              <linearGradient id="sweep-fill" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b3ff68" stop-opacity=".12"/><stop offset="1" stop-color="#b3ff68" stop-opacity="0"/></linearGradient>
+              <filter id="point-glow" x="-150%" y="-150%" width="400%" height="400%"><feGaussianBlur stdDeviation="3"/></filter>
+            </defs>
+            <rect x="10" y="0" width="520" height="460" fill="url(#grid)" mask="url(#grid-mask)"/>
+            <circle cx="270" cy="242" r="210" fill="url(#radar-glow)"/>
+            <g fill="none" stroke="#2b3723" stroke-width=".8">
+              <circle cx="270" cy="242" r="183"/>
+              <circle cx="270" cy="242" r="145" stroke-dasharray="2 5"/>
+              <circle cx="270" cy="242" r="105"/>
+              <circle cx="270" cy="242" r="58" stroke-dasharray="2 5"/>
+              <path d="M270 27v430M55 242h430" stroke-dasharray="3 5"/>
+              <path d="m118 90 304 304M118 394 422 90" opacity=".45"/>
+            </g>
+            <g id="radar-ticks" stroke="#536344" stroke-width="1" aria-hidden="true"></g>
+            <g class="radar-sweep" aria-hidden="true">
+              <path d="M270 242 270 59A183 183 0 0 1 428.5 150.5Z" fill="url(#sweep-fill)"/>
+              <path d="M270 242V59" stroke="#b3ff68" stroke-opacity=".24" stroke-width="1"/>
+              <circle cx="270" cy="59" r="2" fill="#b3ff68" opacity=".7"/>
+            </g>
+            <g fill="#637454" font-size="8" text-anchor="middle">
+              <text x="270" y="18">000°</text>
+              <text x="510" y="245">090°</text>
+              <text x="270" y="477">180°</text>
+              <text x="28" y="245">270°</text>
+            </g>
+            <g fill="none" stroke="#667955" stroke-width="1">
+              <path d="M15 40V15h25M500 15h25v25M15 420v25h25M500 445h25v-25"/>
+              <path d="M265 242h10M270 237v10" stroke="#b3ff68"/>
+            </g>
+            <path d="M98 371 177 330 234 280 293 271 347 185 431 98V423H98Z" fill="url(#trajectory-fill)"/>
+            <path d="M98 371 177 330 234 280" fill="none" stroke="#f4b75c" stroke-width="1.5" stroke-dasharray="4 4"/>
+            <path d="m234 280 59-9 54-86 84-87" fill="none" stroke="#b3ff68" stroke-width="2"/>
+            <path d="M410 98h21v21" fill="none" stroke="#b3ff68" stroke-width="2"/>
+            <g fill="#090b09" stroke="#b3ff68" stroke-width="1.5">
+              <rect x="230" y="276" width="8" height="8"/>
+              <rect x="289" y="267" width="8" height="8"/>
+              <rect x="343" y="181" width="8" height="8"/>
+            </g>
+            <circle cx="98" cy="371" r="4" fill="#f4b75c"/>
+            <circle cx="98" cy="371" r="9" fill="none" stroke="#f4b75c" stroke-opacity=".3"/>
+            <circle cx="431" cy="98" r="8" fill="#b3ff68" filter="url(#point-glow)" opacity=".5"/>
+            <circle cx="431" cy="98" r="5" fill="#b3ff68"/>
+            <circle class="signal-pulse" cx="431" cy="98" r="14" fill="none" stroke="#b3ff68" stroke-width=".8"/>
+            <circle class="signal-pulse second" cx="431" cy="98" r="14" fill="none" stroke="#b3ff68" stroke-width=".8"/>
+            <g font-size="8" letter-spacing="1">
+              <path d="M347 181V147h-41" stroke="#62734f" stroke-width=".7" fill="none"/>
+              <text x="240" y="148" fill="#c7d3bb">ALIGNMENT</text>
+              <path d="M230 280h-49v-25" stroke="#62734f" stroke-width=".7" fill="none"/>
+              <text x="140" y="246" fill="#c7d3bb">CLARITY</text>
+              <path d="M435 98h37V66" stroke="#62734f" stroke-width=".7" fill="none"/>
+              <text x="414" y="55" fill="#b3ff68">MOMENTUM</text>
+            </g>
+            <g transform="translate(39 396)">
+              <rect x="0" y="0" width="176" height="43" fill="#090b09" stroke="#33422a"/>
+              <rect x="0" y="0" width="2" height="43" fill="#f4b75c"/>
+              <text x="13" y="15" font-size="7" fill="#7c8a6d" letter-spacing="1">POINT OF ORIGIN</text>
+              <text x="13" y="31" font-size="10" fill="#f4b75c">YOUR AMBITION →</text>
+            </g>
+            <g transform="translate(363 363)" font-size="7" fill="#637454">
+              <text x="0" y="0">VECTOR     POSITIVE</text>
+              <text x="0" y="14">DIRECTION  FORWARD</text>
+              <text x="0" y="28">POTENTIAL  UNLIMITED</text>
+            </g>
+          </svg>
+          <div class="visual-bottom">
+            <span>FIG 01 — GROWTH, BY DESIGN.</span>
+            <button class="radar-control" type="button" aria-label="Pause radar animation" aria-pressed="false">
+              <span class="pause-symbol" aria-hidden="true"></span>
+              <span class="radar-control-label">PAUSE SCAN</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="metrics" aria-label="Our growth system at a glance">
+        <div class="metric">
+          <div class="metric-top"><span class="metric-value" data-count="4" data-pad="2">04</span><span class="metric-index">[ SYS.01 ]</span></div>
+          <div class="metric-label">Integrated growth modules</div>
+          <div class="metric-bars" aria-hidden="true"><i style="height:4px"></i><i style="height:7px"></i><i style="height:11px"></i><i style="height:15px"></i></div>
+        </div>
+        <div class="metric">
+          <div class="metric-top"><span class="metric-value"><span data-count="360">360</span><span class="green">°</span></span><span class="metric-index">[ SYS.02 ]</span></div>
+          <div class="metric-label">Whole-business perspective</div>
+          <div class="metric-bars" aria-hidden="true"><i style="height:7px"></i><i style="height:11px"></i><i style="height:8px"></i><i style="height:15px"></i></div>
+        </div>
+        <div class="metric">
+          <div class="metric-top"><span class="metric-value" data-count="1" data-pad="2">01</span><span class="metric-index">[ SYS.03 ]</span></div>
+          <div class="metric-label">Shared direction</div>
+          <div class="metric-bars" aria-hidden="true"><i style="height:5px"></i><i style="height:9px"></i><i style="height:12px"></i><i style="height:15px"></i></div>
+        </div>
+        <div class="metric">
+          <div class="metric-top"><span class="metric-value green">∞</span><span class="metric-index">[ SYS.04 ]</span></div>
+          <div class="metric-label">Possibility ahead</div>
+          <div class="metric-bars" aria-hidden="true"><i style="height:6px"></i><i style="height:10px"></i><i style="height:12px"></i><i style="height:15px"></i></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section wrap" id="framework" aria-labelledby="framework-title">
+      <div class="reveal">
+        <p class="section-tag"><span class="tag-cross" aria-hidden="true">├─</span><span class="section-number">02 /</span> The operating system</p>
+        <div class="section-heading">
+          <h2 id="framework-title">Growth isn't a guess.<br>It's a system.</h2>
+          <p class="section-intro">Four connected modules. One clear mission.<br>We find the friction, align the moving parts, and build a practical path to your next stage.</p>
+        </div>
+      </div>
+
+      <div class="modules">
+        <article class="module reveal">
+          <div class="module-meta"><span>MODULE 01</span><span class="module-status" aria-hidden="true"></span></div>
+          <div class="module-illustration" aria-hidden="true">
+            <svg viewBox="0 0 112 80" fill="none">
+              <path d="M42 4v72M6 40h72" stroke="#3b4b30" stroke-dasharray="2 4"/>
+              <circle cx="42" cy="40" r="29" stroke="currentColor" stroke-opacity=".3"/>
+              <circle cx="42" cy="40" r="19" stroke="currentColor" stroke-opacity=".65"/>
+              <circle cx="42" cy="40" r="8" stroke="currentColor"/>
+              <circle cx="42" cy="40" r="2" fill="currentColor"/>
+              <path d="m42 40 27-27M59 13h10v10" stroke="currentColor" stroke-width="1.5"/>
+              <path d="M88 26h20M88 34h14M88 42h17" stroke="#4d5f3d"/>
+              <rect x="88" y="51" width="4" height="4" fill="currentColor"/>
+            </svg>
+          </div>
+          <p class="module-category">Executive coaching</p>
+          <h3>Clear head.<br>Bold moves.</h3>
+          <p class="module-description">Create the space to think bigger. Build the clarity, confidence, and leadership your next chapter demands.</p>
+          <details>
+            <summary>View playbook</summary>
+            <div class="playbook">
+              <p class="playbook-label">Mission parameters</p>
+              <ul><li>One-to-one leadership coaching</li><li>Decision-making frameworks</li><li>Founder-to-leader development</li></ul>
+            </div>
+          </details>
+        </article>
+
+        <article class="module reveal">
+          <div class="module-meta"><span>MODULE 02</span><span class="module-status" aria-hidden="true"></span></div>
+          <div class="module-illustration" aria-hidden="true">
+            <svg viewBox="0 0 112 80" fill="none">
+              <path d="M12 16h27l24 24h37M12 40h88M12 64h27l24-24" stroke="currentColor" stroke-width="1.2"/>
+              <path d="m92 32 8 8-8 8" stroke="currentColor" stroke-width="1.2"/>
+              <rect x="8" y="12" width="8" height="8" fill="#0e110d" stroke="currentColor" stroke-opacity=".5"/>
+              <rect x="8" y="36" width="8" height="8" fill="#0e110d" stroke="currentColor" stroke-opacity=".5"/>
+              <rect x="8" y="60" width="8" height="8" fill="#0e110d" stroke="currentColor" stroke-opacity=".5"/>
+              <circle cx="63" cy="40" r="9" fill="#0e110d" stroke="currentColor"/>
+              <circle cx="63" cy="40" r="2" fill="currentColor"/>
+              <path d="M63 6v17M63 57v17" stroke="#4d5f3d" stroke-dasharray="2 3"/>
+            </svg>
+          </div>
+          <p class="module-category">Growth alignment</p>
+          <h3>One team.<br>One trajectory.</h3>
+          <p class="module-description">Turn competing priorities into shared purpose. Connect your people, strategy, and execution around what matters.</p>
+          <details>
+            <summary>View playbook</summary>
+            <div class="playbook">
+              <p class="playbook-label">Mission parameters</p>
+              <ul><li>Leadership team alignment</li><li>Strategic priorities and ownership</li><li>Execution rhythms and scorecards</li></ul>
+            </div>
+          </details>
+        </article>
+
+        <article class="module reveal">
+          <div class="module-meta"><span>MODULE 03</span><span class="module-status" aria-hidden="true"></span></div>
+          <div class="module-illustration" aria-hidden="true">
+            <svg viewBox="0 0 112 80" fill="none">
+              <path d="M10 7v61h96" stroke="#4d5f3d"/>
+              <path d="M10 24h95M10 46h95" stroke="#35412c" stroke-dasharray="2 4"/>
+              <path d="M24 68V52h12v16M45 68V42h12v26M66 68V30h12v38M87 68V15h12v53" stroke="currentColor" stroke-opacity=".4"/>
+              <path d="m17 48 25-12 19 2 37-30M88 8h10v10" stroke="currentColor" stroke-width="1.5"/>
+              <circle cx="42" cy="36" r="2" fill="currentColor"/>
+              <circle cx="61" cy="38" r="2" fill="currentColor"/>
+            </svg>
+          </div>
+          <p class="module-category">Revenue optimization</p>
+          <h3>Less friction.<br>More growth.</h3>
+          <p class="module-description">Find the untapped value in your business. Sharpen your proposition and build a revenue engine that works harder.</p>
+          <details>
+            <summary>View playbook</summary>
+            <div class="playbook">
+              <p class="playbook-label">Mission parameters</p>
+              <ul><li>Revenue engine diagnostics</li><li>Pricing and proposition strategy</li><li>Pipeline and conversion design</li></ul>
+            </div>
+          </details>
+        </article>
+
+        <article class="module reveal">
+          <div class="module-meta"><span>MODULE 04</span><span class="module-status" aria-hidden="true"></span></div>
+          <div class="module-illustration" aria-hidden="true">
+            <svg viewBox="0 0 112 80" fill="none">
+              <ellipse cx="44" cy="41" rx="30" ry="29" stroke="currentColor" stroke-opacity=".5"/>
+              <ellipse cx="44" cy="41" rx="13" ry="29" stroke="currentColor" stroke-opacity=".3"/>
+              <path d="M14 41h60M20 24h48M20 58h48" stroke="currentColor" stroke-opacity=".3"/>
+              <path d="M44 41 86 8M75 8h11v11" stroke="current

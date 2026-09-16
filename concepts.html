@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>how.co — Brand Concept Selector</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Helvetica Neue', -apple-system, sans-serif;
+    background: #0e0f11;
+    color: #e8e6e1;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.5rem;
+  }
+  .kicker { font-size: 0.75rem; letter-spacing: 0.3em; color: #8a8d92; margin-bottom: 1rem; text-transform: uppercase; }
+  h1 { font-size: clamp(2rem, 5vw, 3.2rem); margin-bottom: 0.5rem; text-align: center; }
+  .sub { color: #9a978f; margin-bottom: 3rem; font-size: 0.95rem; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; width: 100%; max-width: 1080px; }
+  a.card {
+    display: block;
+    padding: 1.8rem;
+    border: 1px solid #2e3134;
+    border-radius: 10px;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+  a.card:hover { transform: translateY(-4px); border-color: #5ce7e2; box-shadow: 0 10px 40px rgba(92,231,226,0.08); }
+  .num { font-size: 0.7rem; letter-spacing: 0.2em; color: #5ce7e2; margin-bottom: 0.8rem; }
+  .card h2 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+  .card p { font-size: 0.85rem; color: #9a978f; line-height: 1.5; }
+  .swatches { display: flex; gap: 6px; margin-top: 1.2rem; }
+  .swatch { width: 22px; height: 22px; border-radius: 5px; border: 1px solid rgba(255,255,255,0.12); }
+  footer { margin-top: 3rem; font-size: 0.8rem; color: #6a6d71; }
+</style>
+</head>
+<body>
+  <div class="kicker">The How Company — how.co</div>
+  <h1>Brand Concept Selector</h1>
+  <p class="sub">Four directions, all built with Astra. Pick a lane.</p>
+  <div class="grid">
+    <a class="card" href="./index.html">
+      <div class="num">V1 — ORIGINAL</div>
+      <h2>Deep Space</h2>
+      <p>Futuristic &amp; aspirational. Starfield canvas, cyan/violet glow, orbital hero art. The one that started it.</p>
+      <div class="swatches">
+        <span class="swatch" style="background:#080b10"></span>
+        <span class="swatch" style="background:#5ce7e2"></span>
+        <span class="swatch" style="background:#aba9ff"></span>
+      </div>
+    </a>
+    <a class="card" href="./variants/v2-mission-control.html">
+      <div class="num">V2 — MISSION CONTROL</div>
+      <h2>Terminal</h2>
+      <p>Retro-futurist command deck. Phosphor green on black, boot-sequence hero, modules &amp; log entries.</p>
+      <div class="swatches">
+        <span class="swatch" style="background:#000000"></span>
+        <span class="swatch" style="background:#33ff66"></span>
+        <span class="swatch" style="background:#ffb000"></span>
+      </div>
+    </a>
+    <a class="card" href="./variants/v3-new-soil.html">
+      <div class="num">V3 — NEW SOIL</div>
+      <h2>Editorial</h2>
+      <p>Warm premium magazine. Bone paper, huge serif type, burnt-orange accent. The anti-dark-mode.</p>
+      <div class="swatches">
+        <span class="swatch" style="background:#faf7f2"></span>
+        <span class="swatch" style="background:#1a1a1a"></span>
+        <span class="swatch" style="background:#c8502e"></span>
+      </div>
+    </a>
+    <a class="card" href="./variants/v4-velocity.html">
+      <div class="num">V4 — VELOCITY</div>
+      <h2>Neo-Brutalist</h2>
+      <p>Electric lime, thick borders, marquee tickers, offset shadows. Gumroad energy, premium finish.</p>
+      <div class="swatches">
+        <span class="swatch" style="background:#111111"></span>
+        <span class="swatch" style="background:#d4ff3f"></span>
+        <span class="swatch" style="background:#ffffff"></span>
+      </div>
+    </a>
+  </div>
+  <footer>© 2026 The How Company — concept exploration, not final brand</footer>
+</body>
+</html>
