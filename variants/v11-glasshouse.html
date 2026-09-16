@@ -4,515 +4,918 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#fbfbfd">
-  <meta name="description" content="Big ambition. A clearer how. The How Company partners with ambitious company builders to unlock clarity, align their teams, and build lasting growth.">
-  <title>how.co — Big ambition. A clearer how.</title>
+  <meta name="description" content="The How Company. Strategic clarity, venture building, and connected growth for ambitious company builders.">
+  <title>how.co — Great things start with how.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;450;500;550;600;650;700;750&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;550;600;650;700;750&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --paper: #fbfbfd;
-      --ink: #1d1d1f;
-      --muted: #787881;
-      --line: rgba(29, 29, 31, .1);
-      --blue: #729bff;
-      --purple: #a58afa;
-      --pink: #e9a6d9;
-      --ease: cubic-bezier(.22, 1, .36, 1);
-      --max: 1160px;
+    :root{--paper:#fbfbfd;--ink:#1d1d1f;--muted:#74747e;--line:rgba(29,29,31,.11);--gradient:linear-gradient(100deg,#78adff,#aa85ec 55%,#efabcf);--pad:clamp(24px,4.8vw,76px);--ease:cubic-bezier(.22,1,.36,1)}
+    *,*::before,*::after{box-sizing:border-box}
+    html{scroll-padding-top:105px}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+    ::selection{background:#e3dafa;color:var(--ink)}
+    a{color:inherit;text-decoration:none}
+    button,input,textarea,select{font:inherit}
+    button{color:inherit;cursor:pointer}
+    button,a,input,textarea,select{-webkit-tap-highlight-color:transparent}
+    button{border:0}
+    button:focus-visible,a:focus-visible{outline:2px solid #9475d3;outline-offset:6px}
+    input:focus-visible,textarea:focus-visible,select:focus-visible{outline:2px solid #9475d3;outline-offset:2px}
+    button:disabled{cursor:wait}
+    img,svg,canvas{display:block}
+    h1,h2,h3,p{margin:0}
+    h1,h2,h3{font-weight:500}
+    em{font-family:"Instrument Serif",Georgia,serif;font-weight:400}
+    .container{max-width:1440px;margin-inline:auto;padding-inline:var(--pad)}
+    .eyebrow{font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;line-height:1.6}
+    .muted{color:var(--muted)}
+    .arrow{display:inline-block;font-size:20px;line-height:1;transition:transform .35s var(--ease)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:28px;min-height:50px;padding:0 23px;border-radius:100px;background:var(--ink);color:white;font-size:12px;font-weight:500;transition:background .25s,transform .35s var(--ease),box-shadow .35s}
+    .btn:hover{background:#39343f;transform:translateY(-2px);box-shadow:0 8px 22px #24212e14}
+    .btn:hover .arrow{transform:translate(2px,-2px)}
+    .btn-light{background:white;color:var(--ink);border:1px solid var(--line)}
+    .btn-light:hover{background:#f1edf7}
+    .text-link{display:inline-flex;align-items:center;gap:14px;font-size:12px;font-weight:500;background:none;padding:8px 0}
+    .text-link:hover .arrow{transform:translateY(3px)}
+    .section{padding-block:112px}
+    .section-heading{font-size:clamp(40px,4.5vw,65px);line-height:1.06;letter-spacing:-.052em}
+    .section-heading em{font-size:1.14em;letter-spacing:-.035em}
+    .highlight{position:relative;isolation:isolate;white-space:nowrap}
+    .highlight::after{content:"";position:absolute;left:0;right:0;bottom:.045em;height:3px;background:var(--gradient);transform:scaleX(0);transform-origin:left;transition:transform 1.25s var(--ease) .3s;z-index:-1}
+    .is-visible .highlight::after,.hero .highlight::after{transform:scaleX(1)}
+    .reveal{transition:opacity 1s var(--ease),transform 1.2s var(--ease);transition-delay:var(--delay,0s)}
+    .motion-ready .reveal:not(.is-visible){opacity:0;transform:translateY(35px) scale(.975)}
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .skip-link{position:fixed;left:20px;top:-80px;padding:14px 20px;background:var(--ink);color:#fff;z-index:1000;border-radius:8px}
+    .skip-link:focus{top:16px}
+    .site-header{position:fixed;inset:0 0 auto;z-index:50;background:rgba(251,251,253,.82);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+    .header-inner{height:88px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}
+    .wordmark{font-size:35px;line-height:1;font-weight:750;letter-spacing:-2.7px}
+    .wordmark .co{font-size:19px;letter-spacing:-1.1px;font-weight:500}
+    .nav{display:flex;align-items:center;gap:34px}
+    .nav-link{font-size:11px;color:#68686f;position:relative;padding:10px 0;transition:color .2s}
+    .nav-link:hover,.nav-link.active{color:var(--ink)}
+    .nav-link::after{content:"";position:absolute;bottom:3px;height:1px;background:var(--ink);left:0;right:0;transform:scaleX(0);transform-origin:left;transition:transform .3s}
+    .nav-link:hover::after{transform:scaleX(1)}
+    .nav .btn{min-height:40px;font-size:11px;margin-left:16px;gap:23px;padding-inline:20px}
+    .menu-toggle{display:none;background:none;width:38px;height:38px;padding:9px}
+    .menu-toggle span{display:block;width:20px;height:1px;background:var(--ink);margin:6px 0;transition:transform .25s}
+    main{padding-top:88px}
+    .hero{position:relative;min-height:770px;height:calc(100svh - 88px);max-height:900px;overflow:hidden}
+    .hero-art{position:absolute;inset:0;pointer-events:none}
+    .hero-canvas{width:100%;height:100%;opacity:0;transition:opacity 1.3s;position:absolute;inset:0}
+    .hero-fallback{position:absolute;width:55%;height:75%;right:0;top:7%;background:radial-gradient(ellipse at 40% 40%,#dfe9ffb0,transparent 55%),radial-gradient(ellipse at 65% 65%,#e2cef0a0,transparent 55%),radial-gradient(ellipse at 75% 30%,#f7d7e580,transparent 55%);filter:blur(30px);transition:opacity 1.5s}
+    .is-3d .hero-canvas{opacity:1}
+    .is-3d .hero-fallback{opacity:0}
+    .hero-inner{position:relative;height:100%;min-height:inherit;pointer-events:none}
+    .hero-copy{padding-top:79px;max-width:640px;position:relative;z-index:2}
+    .hero-copy>*{pointer-events:auto}
+    .hero-eyebrow{display:flex;align-items:center;gap:10px;font-size:9px;letter-spacing:.16em}
+    .status-dot{width:6px;height:6px;flex-shrink:0;border-radius:50%;background:var(--gradient);box-shadow:0 0 0 4px #9f8de80d}
+    h1{font-size:clamp(76px,7.65vw,112px);line-height:.99;letter-spacing:-.066em;margin-top:29px;font-weight:500}
+    h1 em{font-size:1.23em;line-height:.96;letter-spacing:-.055em;display:inline-block;padding-right:9px}
+    h1 .highlight::after{height:3px;bottom:.08em;animation:underline-in 1.5s var(--ease) .5s both}
+    .hero-description{font-size:14px;line-height:1.85;color:#72727b;max-width:345px;margin-top:30px;letter-spacing:-.015em}
+    .hero-actions{display:flex;align-items:center;gap:25px;margin-top:28px}
+    .hero-actions .text-link{font-size:11px}
+    .object-note{position:absolute;right:10.3%;bottom:140px;display:flex;align-items:center;gap:13px;color:#85808d}
+    .object-note::before{content:"";width:35px;height:1px;background:#c7bfce}
+    .object-note span{font-size:8px;letter-spacing:.16em;line-height:1.8}
+    .hero-baseline{position:absolute;left:var(--pad);right:var(--pad);bottom:29px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:22px}
+    .hero-baseline .eyebrow{font-size:8px;letter-spacing:.14em;color:#86868e}
+    .scroll-cue{pointer-events:auto;display:flex;align-items:center;gap:11px;font-size:9px;color:var(--muted)}
+    .scroll-cue .circle{display:grid;place-items:center;width:25px;height:25px;border:1px solid #d9d9df;border-radius:50%;font-size:13px}
+    .audience{border-bottom:1px solid var(--line)}
+    .audience-inner{padding-block:34px;display:flex;align-items:center;justify-content:space-between;gap:40px}
+    .audience .eyebrow{max-width:160px;font-size:8px;color:#8a8a93}
+    .audience-list{display:flex;align-items:center;gap:clamp(25px,5vw,80px);color:#72727a;font-size:17px;letter-spacing:-.05em}
+    .small-star{font-size:20px;color:#b4a7cc;font-weight:400}
+    .intro-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:90px;align-items:end}
+    .intro-grid .eyebrow{margin-bottom:29px}
+    .intro-copy{max-width:410px;padding-bottom:5px}
+    .intro-copy .lead{font-size:21px;line-height:1.55;letter-spacing:-.045em;margin-bottom:18px}
+    .body-copy{color:var(--muted);font-size:13px;line-height:1.9}
+    .stats{display:grid;grid-template-columns:repeat(3,1fr);margin-top:68px;padding-top:39px;border-top:1px solid var(--line)}
+    .stat{padding-left:36px;border-left:1px solid var(--line)}
+    .stat:first-child{padding-left:0;border-left:0}
+    .stat-number{display:flex;align-items:baseline;font-size:58px;letter-spacing:-.065em;line-height:1.04;font-weight:450}
+    .stat-label{font-size:11px;color:var(--muted);margin-top:14px}
+    .digit{display:inline-block;overflow:hidden;height:1.04em;width:.62em;letter-spacing:0}
+    .digit-track{display:flex;flex-direction:column;transition:transform 1.8s var(--ease);will-change:transform}
+    .digit-track span{display:block;flex:0 0 1.04em;height:1.04em;line-height:1.04}
+    .number-suffix{font-size:.55em;margin-left:4px}
+    .pillars{position:relative;background:#f6f6f9;isolation:isolate;overflow:hidden}
+    .pillars::before{content:"";position:absolute;inset:20% -10% -30%;background:radial-gradient(ellipse at 20% 80%,#d3e3fc7a,transparent 45%),radial-gradient(ellipse at 60% 60%,#e5d8f299,transparent 45%),radial-gradient(ellipse at 95% 70%,#f3dce873,transparent 50%);z-index:-1}
+    .section-top{display:flex;align-items:end;justify-content:space-between;gap:45px;margin-bottom:48px}
+    .section-top .eyebrow{margin-bottom:24px}
+    .section-aside{font-size:12px;line-height:1.9;color:var(--muted);max-width:250px;padding-bottom:5px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .glass-card{position:relative;min-height:359px;padding:31px;display:flex;flex-direction:column;background:linear-gradient(135deg,#ffffffba,#ffffff55);border:1px solid #ffffffd9;border-radius:15px;box-shadow:0 10px 30px #37304e03,inset 0 1px 0 #fff;backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);transition:transform .6s var(--ease),box-shadow .6s}
+    .glass-card:hover{transform:translateY(-7px);box-shadow:0 20px 50px #6151750c}
+    .card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:39px;min-height:39px}
+    .card-index{font-size:10px;color:#8c8896;letter-spacing:.08em}
+    .micro{width:60px;height:40px;position:relative;color:#a295ca}
+    .micro svg{width:100%;height:100%;overflow:visible}
+    .spark-path{stroke-dasharray:110;stroke-dashoffset:110;animation:spark 4s var(--ease) infinite}
+    .spark-dot{animation:pulse 3s ease-in-out infinite}
+    .orbit-micro{width:36px;height:36px;border:1px solid #bdb0d073;border-radius:50%;margin:auto;position:relative;animation:spin 12s linear infinite}
+    .orbit-micro::before{content:"";position:absolute;inset:7px;border:1px solid #baa4d15c;border-radius:50%}
+    .orbit-micro::after{content:"";position:absolute;left:13px;top:-3px;width:6px;height:6px;background:#a795d0;border:2px solid #f6f2fa;border-radius:50%;box-shadow:0 0 12px #bdaceb}
+    .orbit-core{position:absolute;left:27px;top:17px;width:6px;height:6px;border-radius:50%;background:#b5a1cf}
+    .pulse-dot{position:absolute;inset:14px auto auto 27px;width:11px;height:11px;border-radius:50%;background:#a78bbf;box-shadow:0 0 15px #c2a8dd77}
+    .pulse-dot::before,.pulse-dot::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:1px solid #baa1cc;animation:ripple 3s ease-out infinite}
+    .pulse-dot::after{animation-delay:1.5s}
+    .glass-card .eyebrow{font-size:8px;letter-spacing:.13em;color:#89828f;margin-bottom:14px}
+    .glass-card h3{font-size:28px;line-height:1.15;letter-spacing:-.045em;margin-bottom:18px}
+    .glass-card .body-copy{font-size:12px;line-height:1.85;max-width:270px}
+    .card-link{display:flex;align-items:center;justify-content:space-between;width:100%;background:none;border-top:1px solid #7971851c;margin-top:28px;padding:19px 0 0;text-align:left;font-size:10px}
+    .card-link .arrow{font-size:17px}
+    .card-link:hover .arrow{transform:translate(3px,-3px)}
+    .pillars-note{text-align:center;font-size:9px;color:#958e9e;margin-top:26px;letter-spacing:.02em}
+    .framework-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:90px;align-items:center}
+    .growth-system{aspect-ratio:1;position:relative;max-width:480px;width:100%;margin:auto}
+    .growth-glow{position:absolute;inset:18%;border-radius:50%;background:radial-gradient(circle,#eee7f9 0,#e7eefe66 45%,transparent 70%);filter:blur(15px)}
+    .system-rings{position:absolute;inset:8%;width:84%;height:84%;overflow:visible}
+    .system-center{position:absolute;inset:35%;display:flex;align-items:center;justify-content:center;border-radius:50%;background:radial-gradient(circle at 30% 20%,#fff,#ffffffa6 48%,#e9e1f29c);border:1px solid #fff;box-shadow:inset 0 0 25px #fff,0 12px 45px #9e83c115}
+    .system-center .wordmark{font-size:45px;letter-spacing:-3px}
+    .system-orbit{position:absolute;inset:14%;border:1px solid #b7a4d321;border-radius:50%;animation:spin 30s linear infinite}
+    .system-orbit::after{content:"";position:absolute;top:-4px;left:calc(50% - 4px);width:7px;height:7px;border-radius:50%;background:#b598d2;box-shadow:0 0 0 5px #b598d20b,0 0 15px #b598d255}
+    .system-node{position:absolute;z-index:2;background:#fbfbfde0;border:1px solid #e6e2ec;border-radius:100px;padding:10px 15px;font-size:10px;display:flex;align-items:center;gap:9px;backdrop-filter:blur(10px);transition:box-shadow .4s,border-color .4s,background .4s}
+    .system-node span{font-size:8px;color:#aaa0b4}
+    .system-node.active{border-color:#bba9d6;background:#fff;box-shadow:0 5px 23px #9b7cbc13}
+    .node-0{left:50%;top:9%;transform:translateX(-50%)}
+    .node-1{right:-2%;top:50%;transform:translateY(-50%)}
+    .node-2{left:50%;bottom:9%;transform:translateX(-50%)}
+    .node-3{left:-2%;top:50%;transform:translateY(-50%)}
+    .system-footnote{position:absolute;bottom:0;text-align:center;width:100%;font-size:8px;letter-spacing:.14em;color:#9b929f}
+    .steps{border-top:1px solid var(--line)}
+    .step{border-bottom:1px solid var(--line)}
+    .step-button{padding:25px 0;display:flex;align-items:center;gap:24px;background:none;width:100%;text-align:left}
+    .step-number{font-size:10px;color:#9b94a6}
+    .step-title{font-size:20px;letter-spacing:-.04em;flex:1}
+    .step-icon{height:22px;width:22px;display:grid;place-items:center;border:1px solid var(--line);border-radius:50%;font-size:15px;color:#8f849d;transition:transform .35s}
+    .step-button[aria-expanded="true"] .step-icon{transform:rotate(45deg)}
+    .step-panel{padding:0 20px 25px 38px;font-size:12px;line-height:1.9;color:var(--muted)}
+    .step-panel[hidden]{display:none}
+    .step-panel .step-output{display:block;font-size:8px;text-transform:uppercase;letter-spacing:.1em;margin-top:15px;color:#9c8eac}
+    .perspective{padding-top:35px}
+    .perspective .section-top{border-top:1px solid var(--line);padding-top:73px}
+    .perspective-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+    .insight{width:100%;padding:0;text-align:left;border:1px solid var(--line);border-radius:13px;overflow:hidden;background:#fff;transition:transform .5s var(--ease),box-shadow .5s}
+    .insight:hover{transform:translateY(-5px);box-shadow:0 16px 40px #34303f07}
+    .insight-art{height:205px;position:relative;overflow:hidden;background:#f1eef7}
+    .pane-art{background:radial-gradient(ellipse at 30% 20%,#f8f9ff,#eeedf7 65%,#eae4f2)}
+    .pane{position:absolute;width:160px;height:140px;left:50%;top:50%;border:1px solid #ffffffcf;border-radius:7px;transform:translate(-50%,-50%) rotate(-30deg) skew(18deg,12deg);background:linear-gradient(120deg,#ffffff8c,#b9baf036);box-shadow:12px 20px 30px #7b70b70b}
+    .pane:nth-child(1){margin-left:-55px;margin-top:22px}
+    .pane:nth-child(2){background:linear-gradient(120deg,#ffffffb5,#d3bbeb55);z-index:1}
+    .pane:nth-child(3){margin-left:55px;margin-top:-22px;background:linear-gradient(120deg,#ffffff9c,#c1d4f933);z-index:2}
+    .ripple-art{background:radial-gradient(ellipse at 65% 55%,#e8e8f8,#f1f4fa 60%,#f7f6fa)}
+    .ripple-circle{position:absolute;left:50%;top:50%;width:110px;height:110px;border-radius:50%;border:1px solid #c2c8de70;transform:translate(-50%,-50%) rotateX(45deg);box-shadow:0 3px 5px #fff8}
+    .ripple-circle:nth-child(2){width:210px;height:210px}
+    .ripple-circle:nth-child(3){width:320px;height:320px}
+    .ripple-circle:nth-child(4){width:435px;height:435px}
+    .art-pearl{position:absolute;left:calc(50% - 18px);top:calc(50% - 28px);width:36px;height:36px;background:radial-gradient(circle at 30% 25%,#fff 4%,#f4f3ff 27%,#c6bee3 62%,#9789b7);border-radius:50%;box-shadow:8px 16px 19px #8576ad24,inset -2px -3px 8px #8c81b12b}
+    .insight-content{padding:25px 28px 28px}
+    .insight-meta{display:flex;align-items:center;gap:13px;font-size:8px;color:#938a9f;letter-spacing:.1em;text-transform:uppercase;margin-bottom:17px}
+    .insight-meta span+span::before{content:"·";margin-right:13px}
+    .insight-bottom{display:flex;justify-content:space-between;gap:20px;align-items:end}
+    .insight h3{font-size:27px;line-height:1.17;letter-spacing:-.045em}
+    .insight .arrow{font-size:23px;color:#8a7e97}
+    .insight:hover .arrow{transform:translate(3px,-3px)}
+    .contact-section{position:relative;isolation:isolate;overflow:hidden;text-align:center;padding:105px var(--pad) 108px;background:#f6f5f9;border-block:1px solid #eae7ef}
+    .contact-section::before{content:"";position:absolute;z-index:-1;inset:0;background:radial-gradient(ellipse at 30% 110%,#d9e7fd88,transparent 58%),radial-gradient(ellipse at 65% 100%,#e7d9f5b0,transparent 55%),radial-gradient(ellipse at 95% 85%,#f5deec80,transparent 45%)}
+    .contact-symbol{width:30px;height:30px;margin:0 auto 28px;color:#b49aca}
+    .contact-section h2{font-size:clamp(48px,6.5vw,88px);line-height:1.06;letter-spacing:-.055em}
+    .contact-section h2 em{font-size:1.1em}
+    .contact-section p{font-size:12px;line-height:1.8;color:#88818f;margin:24px 0 27px}
+    footer{padding-block:43px 28px}
+    .footer-main{display:flex;align-items:center;justify-content:space-between;gap:30px;padding-bottom:33px}
+    .footer-brand{display:flex;align-items:center;gap:27px}
+    .footer-brand .wordmark{font-size:32px}
+    .footer-tagline{font-size:9px;line-height:1.7;color:#918a97;padding-left:26px;border-left:1px solid var(--line)}
+    .footer-links{display:flex;gap:29px;align-items:center}
+    .footer-links a,.footer-links button{font-size:10px;background:none;padding:5px 0;color:#716b79}
+    .footer-bottom{border-top:1px solid var(--line);padding-top:22px;display:flex;justify-content:space-between;color:#a39ca9;font-size:8px;letter-spacing:.015em}
+    .footer-bottom span:last-child{display:flex;align-items:center;gap:7px}
+    dialog{width:calc(100% - 32px);max-width:610px;max-height:90svh;padding:45px;border:1px solid #fff;border-radius:20px;background:#fbfbfd;color:var(--ink);box-shadow:0 30px 120px #2b204530;overflow-y:auto}
+    dialog::backdrop{background:#30283d35;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+    .modal-close{position:absolute;right:18px;top:18px;display:grid;place-items:center;border:1px solid var(--line);width:30px;height:30px;border-radius:50%;background:none;font-size:21px;line-height:1;color:#8a8194}
+    .modal-eyebrow{color:#9b8ba9;margin-bottom:20px}
+    .modal-title{font-size:43px;line-height:1.1;letter-spacing:-.055em;margin-right:10px}
+    .modal-copy{font-size:13px;color:var(--muted);line-height:1.9;margin-top:24px}
+    .modal-copy p+p{margin-top:17px}
+    .modal-copy h3{color:var(--ink);font-size:17px;letter-spacing:-.03em;margin:25px 0 10px}
+    .modal-copy ul{padding-left:18px}
+    .modal-copy li{padding:4px 0}
+    .modal-copy .btn{margin-top:24px}
+    .contact-form{margin-top:27px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .field{display:flex;flex-direction:column;gap:9px;margin-bottom:19px}
+    .field label{font-size:10px;color:#82798d}
+    .field input,.field select,.field textarea{width:100%;background:#fff;border:1px solid #e5e0eb;border-radius:7px;padding:12px 13px;color:var(--ink);font-size:12px}
+    .field textarea{resize:vertical;min-height:94px}
+    .form-note{font-size:10px;color:#9b91a3;line-height:1.7;margin-top:15px}
+    #form-status{color:#786091}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @keyframes pulse{50%{opacity:.4}}
+    @keyframes spark{0%{stroke-dashoffset:110;opacity:.4}45%,80%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+    @keyframes ripple{0%{transform:scale(.55);opacity:.6}100%{transform:scale(1.5);opacity:0}}
+    @keyframes underline-in{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+    @media(min-width:1700px){.hero-art{max-width:1600px;margin:auto}.hero-copy{padding-top:105px}}
+    @media(max-width:1100px){
+      .nav{gap:24px}.nav .btn{margin-left:0}.hero{min-height:725px}.hero-copy{padding-top:75px}h1{font-size:88px}.hero-description{max-width:310px}.hero-actions{gap:18px}.hero-actions .text-link{font-size:10px}.intro-grid,.framework-grid{gap:50px}.glass-card{padding:25px}.glass-card h3{font-size:25px}.object-note{right:7%;bottom:139px}.section{padding-block:90px}.system-node{padding:9px 12px}.perspective{padding-top:10px}
     }
+    @media(max-width:760px){
+      .header-inner{height:74px}.wordmark{font-size:32px}.wordmark .co{font-size:17px}.menu-toggle{display:block}.nav{position:absolute;top:74px;left:0;right:0;display:none;flex-direction:column;align-items:stretch;gap:8px;background:#fbfbfdf7;backdrop-filter:blur(20px);padding:22px var(--pad) 30px;border-bottom:1px solid var(--line)}.nav.is-open{display:flex}.nav-link{padding:13px 0;font-size:14px}.nav .btn{margin-top:10px;align-self:start}.menu-toggle[aria-expanded="true"] span:first-child{transform:translateY(3.5px) rotate(45deg)}.menu-toggle[aria-expanded="true"] span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
+      main{padding-top:74px}.hero{height:auto;min-height:970px;max-height:none}.hero-inner{min-height:970px}.hero-copy{padding-top:47px;max-width:540px}.hero-eyebrow{font-size:8px}h1{font-size:clamp(69px,13vw,94px);margin-top:26px;line-height:.99}.hero-description{font-size:13px;max-width:330px;margin-top:24px}.hero-actions{margin-top:23px;gap:23px}.hero-actions .text-link{font-size:10px}.btn{min-height:46px;font-size:11px;padding-inline:21px;gap:21px}
+      .hero-art{top:auto;height:425px;bottom:53px}.hero-fallback{inset:0;width:100%;height:100%}.object-note{bottom:102px;right:var(--pad)}.object-note span{font-size:7px}.object-note::before{width:23px}.hero-baseline{bottom:22px;padding-top:18px}.hero-baseline .eyebrow{font-size:6px;max-width:185px;line-height:1.7}.scroll-cue{font-size:8px}
+      .audience-inner{flex-direction:column;gap:24px;padding-block:28px}.audience .eyebrow{max-width:none;font-size:7px}.audience-list{gap:23px;font-size:14px}.small-star{font-size:14px}.section{padding-block:72px}.intro-grid{grid-template-columns:1fr;gap:30px}.intro-grid .eyebrow{margin-bottom:22px}.section-heading{font-size:44px}.intro-copy{max-width:480px}.intro-copy .lead{font-size:19px;max-width:350px}.body-copy{font-size:12px}.stats{margin-top:39px;padding-top:27px}.stat{padding-left:18px}.stat-number{font-size:43px}.stat-label{font-size:8px;line-height:1.6;max-width:100px;margin-top:10px}
+      .section-top{display:block;margin-bottom:34px}.section-top .eyebrow{margin-bottom:21px}.section-aside{margin-top:24px;max-width:300px;font-size:12px}.cards{grid-template-columns:1fr;gap:16px}.glass-card{min-height:310px;padding:27px}.card-top{margin-bottom:25px}.glass-card h3{font-size:29px}.glass-card h3 br{display:none}.glass-card .body-copy{max-width:390px}.card-link{margin-top:27px}.pillars-note{font-size:8px}.framework-grid{grid-template-columns:1fr;gap:36px}.growth-system{max-width:390px}.steps{margin-top:0}.system-node{font-size:9px}.step-title{font-size:19px}.step-button{padding-block:23px}.perspective{padding-top:0}.perspective .section-top{padding-top:57px}.perspective-grid{grid-template-columns:1fr;gap:22px}.insight-art{height:200px}.insight h3{font-size:26px}.insight-content{padding:23px 25px}.contact-section{padding-block:74px}.contact-section h2{font-size:54px}.contact-section p{font-size:11px}.contact-symbol{width:25px;height:25px;margin-bottom:24px}
+      footer{padding-top:31px}.footer-main{align-items:start;gap:28px;flex-direction:column;padding-bottom:25px}.footer-brand{width:100%;justify-content:space-between}.footer-tagline{font-size:8px;padding-left:20px}.footer-links{gap:26px;width:100%}.footer-links a,.footer-links button{font-size:9px}.footer-links button:last-child{margin-left:auto}.footer-bottom{font-size:7px;gap:15px;line-height:1.8}.footer-bottom span:last-child{gap:5px}dialog{padding:37px 25px 28px}.modal-title{font-size:36px}.form-row{grid-template-columns:1fr;gap:0}
+    }
+    @media(max-width:380px){.hero-actions{gap:15px}.hero-actions .text-link{font-size:9px}.audience-list{gap:15px;font-size:12px}.hero-eyebrow{font-size:7px}.section-heading{font-size:39px}.contact-section h2{font-size:46px}.system-node{padding:8px 9px;font-size:8px}}
+    @media(prefers-reduced-motion:reduce){
+      *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+      .hero-canvas{display:none!important}.hero-fallback{opacity:1!important}.motion-ready .reveal:not(.is-visible){opacity:1;transform:none}.highlight::after{transform:scaleX(1)}.spark-path{stroke-dashoffset:0}
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-inner">
+        <a class="wordmark" href="#home" aria-label="The How Company home">how<span class="co">.co</span></a>
+        <button class="menu-toggle" aria-label="Open navigation" aria-expanded="false" aria-controls="navigation"><span></span><span></span></button>
+        <nav class="nav" id="navigation" aria-label="Main navigation">
+          <a class="nav-link" href="#approach">Our approach</a>
+          <a class="nav-link" href="#framework">The framework</a>
+          <a class="nav-link" href="#perspective">Perspective</a>
+          <button class="btn" data-contact>Let’s build something <span class="arrow" aria-hidden="true">↗</span></button>
+        </nav>
+      </div>
+    </div>
+  </header>
 
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-padding-top: 110px; }
-    body {
-      margin: 0;
-      background: var(--paper);
-      color: var(--ink);
-      font-family: "Inter", sans-serif;
-      font-size: 15px;
-      line-height: 1.65;
-      -webkit-font-smoothing: antialiased;
-    }
-    body.dialog-open { overflow: hidden; }
-    ::selection { background: #d9cefa; color: var(--ink); }
-    button, input, select, textarea { font: inherit; }
-    button, a { -webkit-tap-highlight-color: transparent; }
-    button { color: inherit; }
-    a { color: inherit; text-decoration: none; }
-    button { cursor: pointer; }
-    button:disabled { cursor: default; }
-    button, input, select, textarea { border-radius: 0; }
-    button { border: 0; }
-    h1, h2, h3, p { margin: 0; }
-    h1, h2, h3 { font-weight: 500; }
-    svg { display: block; }
-    a:focus-visible, button:focus-visible, input:focus-visible,
-    select:focus-visible, textarea:focus-visible {
-      outline: 3px solid #9676e3;
-      outline-offset: 5px;
-    }
-    .icon { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; flex: 0 0 auto; }
-    .svg-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
-    .container { width: min(var(--max), calc(100% - 96px)); margin-inline: auto; }
-    .section { padding-block: 118px; }
-    .eyebrow { font-size: 10px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; }
-    .eyebrow .index { color: #aaa9b1; margin-right: 14px; font-variant-numeric: tabular-nums; }
-    .serif { font-family: "Instrument Serif", Georgia, serif; font-weight: 400; font-style: italic; }
-    .muted { color: var(--muted); }
-    .section-title { font-size: clamp(38px, 4.5vw, 62px); letter-spacing: -.055em; line-height: 1.1; }
-    .section-title .serif { letter-spacing: -.035em; font-size: 1.12em; }
-    .text-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 13px;
-      font-size: 13px;
-      font-weight: 500;
-      padding-bottom: 5px;
-      border-bottom: 1px solid rgba(29,29,31,.22);
-      transition: gap .35s var(--ease), border-color .3s;
-    }
-    .text-link:hover { gap: 21px; border-color: #9175d7; }
-    .text-link .icon { width: 15px; height: 15px; }
-    .button {
-      min-height: 50px;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      gap: 23px;
-      padding: 14px 23px;
-      border-radius: 100px;
-      background: var(--ink);
-      color: white;
-      font-size: 12px;
-      font-weight: 500;
-      line-height: 1.4;
-      position: relative;
-      transition: transform .4s var(--ease), box-shadow .4s, background .3s;
-    }
-    .button .icon { width: 17px; height: 17px; transition: transform .4s var(--ease); }
-    .button:hover { transform: translateY(-3px); background: #323038; box-shadow: 0 8px 24px #3f315322; }
-    .button:hover .icon { transform: translate(2px, -2px); }
-    .button:active { transform: translateY(0); }
-    .skip-link { position: fixed; top: -80px; left: 24px; z-index: 300; padding: 12px 20px; background: var(--ink); color: white; border-radius: 50px; }
-    .skip-link:focus { top: 16px; }
-    .scroll-spacer { display: none; }
-    .is-smooth .scroll-content { position: fixed; inset: 0 0 auto; width: 100%; will-change: transform; }
-    .is-smooth .scroll-spacer { display: block; pointer-events: none; }
-    .js [data-reveal] {
-      opacity: 0;
-      transform: translateY(38px) scale(.975);
-      transition: opacity 1s var(--ease), transform 1.15s var(--ease);
-      transition-delay: var(--delay, 0ms);
-    }
-    .js [data-reveal].is-visible { opacity: 1; transform: translateY(0) scale(1); }
-    .highlight { position: relative; white-space: nowrap; z-index: 0; }
-    .highlight::after {
-      content: "";
-      position: absolute;
-      height: .12em;
-      left: 0;
-      right: 0;
-      bottom: .025em;
-      background: linear-gradient(90deg, #a8c1ff, #c4a6ed 55%, #f0bedb);
-      border-radius: 10px;
-      z-index: -1;
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 1.25s var(--ease) .4s;
-    }
-    .is-visible .highlight::after, .highlight.is-visible::after { transform: scaleX(1); }
+  <div id="smooth-content">
+    <main id="main">
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="hero-art" aria-hidden="true">
+          <div class="hero-fallback"></div>
+          <canvas class="hero-canvas"></canvas>
+        </div>
+        <div class="hero-inner container">
+          <div class="hero-copy">
+            <div class="hero-eyebrow eyebrow"><span class="status-dot"></span> The How Company · Built for what’s next</div>
+            <h1 id="hero-title">Great things<br>start with<br><em class="highlight">how.</em></h1>
+            <p class="hero-description">You see what could be. We help make it real.<br>Strategy, venture building, and the systems to grow — beautifully connected.</p>
+            <div class="hero-actions">
+              <button class="btn" data-contact>Find your how <span class="arrow" aria-hidden="true">↗</span></button>
+              <a class="text-link" href="#approach">Meet your growth partner <span class="arrow" aria-hidden="true">↓</span></a>
+            </div>
+          </div>
+          <div class="object-note" aria-hidden="true"><span>INDEPENDENT THINKING.<br>INFINITE POSSIBILITIES.</span></div>
+          <div class="hero-baseline">
+            <span class="eyebrow">Clarity in thought. Conviction in action.</span>
+            <a href="#approach" class="scroll-cue">A little further <span class="circle" aria-hidden="true">↓</span></a>
+          </div>
+        </div>
+      </section>
 
-    /* The floating glass navigation */
-    .header {
-      position: fixed;
-      top: 20px;
-      left: 50%;
-      width: min(1280px, calc(100% - 64px));
-      transform: translateX(-50%);
-      z-index: 100;
-      padding: 15px 22px 15px 27px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border: 1px solid transparent;
-      border-radius: 100px;
-      transition: width .65s var(--ease), top .65s var(--ease), padding .65s var(--ease), background .5s, border-color .5s, box-shadow .5s;
-    }
-    .header.scrolled {
-      top: 12px;
-      width: min(1000px, calc(100% - 48px));
-      padding: 10px 12px 10px 22px;
-      background: rgba(251,251,253,.76);
-      border-color: rgba(255,255,255,.85);
-      backdrop-filter: blur(24px) saturate(160%);
-      -webkit-backdrop-filter: blur(24px) saturate(160%);
-      box-shadow: 0 4px 30px rgba(33,27,62,.055), inset 0 0 0 1px rgba(29,29,31,.025);
-    }
-    .brand { display: inline-flex; align-items: center; gap: 13px; }
-    .wordmark { font-weight: 750; font-size: 30px; line-height: 1; letter-spacing: -.075em; }
-    .wordmark .co { font-weight: 450; }
-    .brand-caption { font-size: 8px; font-weight: 550; letter-spacing: .09em; line-height: 1.5; text-transform: uppercase; border-left: 1px solid #d8d7dd; padding-left: 13px; }
-    .desktop-nav { display: flex; gap: 31px; align-items: center; }
-    .desktop-nav a { font-size: 11px; color: #66646b; transition: color .3s; position: relative; }
-    .desktop-nav a:hover, .desktop-nav a.active { color: var(--ink); }
-    .desktop-nav a::after { content: ""; position: absolute; bottom: -7px; left: 50%; width: 3px; height: 3px; border-radius: 50%; background: #9a7ae5; opacity: 0; transition: opacity .3s; }
-    .desktop-nav a.active::after { opacity: 1; }
-    .header .button { min-height: 39px; padding: 11px 18px; font-size: 10px; gap: 22px; }
-    .header .button .icon { width: 14px; height: 14px; }
-    .header-actions { display: flex; align-items: center; gap: 10px; }
-    .menu-toggle { display: none; width: 39px; height: 39px; border-radius: 50%; background: #eeeef3; align-items: center; justify-content: center; flex-direction: column; gap: 5px; }
-    .menu-toggle span { height: 1px; width: 15px; background: var(--ink); transition: transform .3s; }
-    .menu-toggle[aria-expanded="true"] span:first-child { transform: translateY(3px) rotate(45deg); }
-    .menu-toggle[aria-expanded="true"] span:last-child { transform: translateY(-3px) rotate(-45deg); }
-    .mobile-nav { display: none; }
+      <div class="audience">
+        <div class="container audience-inner">
+          <p class="eyebrow">For the ambitious.<br>At every stage.</p>
+          <div class="audience-list"><span>First-time founders</span><span class="small-star" aria-hidden="true">✳</span><span>Scale-up teams</span><span class="small-star" aria-hidden="true">✳</span><span>Next-chapter leaders</span></div>
+        </div>
+      </div>
 
-    /* A quiet, living gradient */
-    .hero { position: relative; isolation: isolate; text-align: center; padding: 170px 24px 34px; overflow: hidden; }
-    .hero-atmosphere { position: absolute; inset: 0; pointer-events: none; z-index: -1; overflow: hidden; }
-    .mesh-blob {
-      position: absolute;
-      top: 230px;
-      left: calc(50% - 410px);
-      width: 820px;
-      height: 490px;
-      background:
-        radial-gradient(ellipse at 25% 45%, #9ecbff 0%, transparent 54%),
-        radial-gradient(ellipse at 65% 30%, #c8b4fb 0%, transparent 58%),
-        radial-gradient(ellipse at 80% 75%, #f5c2da 0%, transparent 57%),
-        radial-gradient(ellipse at 45% 80%, #c5c2ff 0%, transparent 60%);
-      filter: blur(48px);
-      opacity: .7;
-      border-radius: 44% 56% 68% 32% / 50% 36% 64% 50%;
-      animation: morph 19s ease-in-out infinite alternate, hue-drift 28s ease-in-out infinite alternate;
-    }
-    .mesh-light { position: absolute; top: 185px; left: calc(50% - 230px); width: 450px; height: 450px; background: radial-gradient(ellipse, rgba(255,255,255,.95), transparent 65%); filter: blur(20px); }
-    .mesh-orbit { position: absolute; top: 314px; left: calc(50% - 410px); width: 820px; height: 365px; border: 1px solid rgba(255,255,255,.6); border-radius: 50%; transform: rotate(-16deg); box-shadow: 0 0 20px rgba(255,255,255,.22); }
-    .mesh-orbit.two { top: 370px; left: calc(50% - 340px); width: 700px; height: 240px; transform: rotate(17deg); opacity: .5; }
-    .hero-eyebrow { display: inline-flex; align-items: center; gap: 9px; border: 1px solid #e8e5ee; background: rgba(255,255,255,.58); border-radius: 50px; padding: 6px 12px; font-size: 9px; font-weight: 500; letter-spacing: .055em; }
-    .status-dot { position: relative; width: 5px; height: 5px; border-radius: 50%; background: #a389d6; flex-shrink: 0; }
-    .status-dot::after { content: ""; position: absolute; inset: -4px; border: 1px solid #b9a6e4; border-radius: 50%; animation: pulse 3s ease-out infinite; }
-    .hero h1 { font-size: clamp(72px, 8.7vw, 118px); line-height: 1.025; letter-spacing: -.07em; font-weight: 500; margin-top: 25px; }
-    .hero h1 .serif { font-size: 1.14em; line-height: .8; letter-spacing: -.065em; padding-right: .05em; }
-    .gradient-type { background: linear-gradient(115deg, #5485d5 5%, #9679cc 52%, #c985b5 95%); -webkit-background-clip: text; background-clip: text; color: transparent; }
-    .hero-description { font-size: 15px; color: #71707a; line-height: 1.85; max-width: 460px; margin: 25px auto 0; letter-spacing: -.015em; }
-    .hero-actions { display: flex; justify-content: center; align-items: center; gap: 27px; margin-top: 27px; }
-    .hero-actions .secondary { font-size: 11px; display: inline-flex; gap: 9px; align-items: center; color: #595660; transition: color .3s; }
-    .hero-actions .secondary:hover { color: #8959bd; }
-    .hero-actions .secondary .icon { width: 14px; height: 14px; }
-    .signal-map { width: min(750px, 100%); height: 155px; position: relative; margin: 32px auto 0; }
-    .signal-path { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
-    .signal-path .travel { stroke-dasharray: 2 700; animation: travel 8s linear infinite; }
-    .hero-chip {
-      position: absolute;
-      top: 61px;
-      width: 176px;
-      padding: 16px 17px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-align: left;
-      background: linear-gradient(135deg, rgba(255,255,255,.83), rgba(255,255,255,.48));
-      border: 1px solid rgba(255,255,255,.95);
-      border-radius: 17px;
-      backdrop-filter: blur(15px);
-      box-shadow: 0 10px 35px #6b55880b, inset 0 1px 0 white;
-      animation: levitate 7s ease-in-out infinite;
-    }
-    .hero-chip.one { left: 20px; transform: rotate(-5deg); }
-    .hero-chip.two { top: 25px; left: calc(50% - 88px); animation-delay: -2.2s; }
-    .hero-chip.three { right: 20px; transform: rotate(5deg); animation-delay: -4.5s; }
-    .chip-symbol { width: 31px; height: 31px; display: grid; place-items: center; border-radius: 10px; color: #7d9bdd; background: #e9f0fd; flex-shrink: 0; }
-    .two .chip-symbol { background: #eee8fa; color: #a188d1; }
-    .three .chip-symbol { background: #f9eaf3; color: #cc99ba; }
-    .chip-symbol .icon { width: 18px; height: 18px; }
-    .chip-number { display: block; color: #9996a2; font-size: 8px; letter-spacing: .08em; line-height: 1.5; margin-bottom: 2px; }
-    .chip-label { font-size: 11px; font-weight: 500; white-space: nowrap; }
-    .hero-footnote { margin-top: 17px; color: #929099; font-size: 9px; letter-spacing: .055em; }
-    .hero-footnote span { display: inline-block; margin-inline: 8px; width: 2px; height: 2px; background: #aaa5b2; vertical-align: middle; }
-    .builder-strip { padding: 40px 0 43px; border-bottom: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 30px; }
-    .builder-strip > p { color: #9b99a1; font-size: 10px; line-height: 1.7; max-width: 160px; }
-    .builder-types { display: flex; gap: clamp(32px, 6vw, 83px); color: #727077; font-size: 17px; letter-spacing: -.045em; font-weight: 550; }
-    .builder-types span { display: flex; align-items: center; gap: 12px; }
-    .builder-types .icon { width: 19px; height: 19px; color: #a7a3ae; stroke-width: 1.25; }
+      <section class="section container" id="approach">
+        <div class="intro-grid">
+          <div class="reveal">
+            <p class="eyebrow muted">01 / A different kind of partner</p>
+            <h2 class="section-heading">The difference<br>is in the <em class="highlight">how.</em></h2>
+          </div>
+          <div class="intro-copy reveal" style="--delay:.1s">
+            <p class="lead">Ambition isn’t the hard part.<br>Turning it into momentum is.</p>
+            <p class="body-copy">We’re thinkers who build, and builders who think. We work shoulder to shoulder with ambitious leaders to connect the big picture to the next right move. No handoffs. No hundred-slide goodbyes. Just a shared commitment to what comes next.</p>
+          </div>
+        </div>
+        <div class="stats reveal">
+          <div class="stat">
+            <div class="stat-number odometer" data-number="03" aria-label="Three">03</div>
+            <p class="stat-label">Connected disciplines</p>
+          </div>
+          <div class="stat">
+            <div class="stat-number odometer" data-number="01" aria-label="One">01</div>
+            <p class="stat-label">Shared ambition</p>
+          </div>
+          <div class="stat">
+            <div class="stat-number odometer" data-number="100" data-suffix="%" aria-label="One hundred percent">100%</div>
+            <p class="stat-label">Committed to your next chapter</p>
+          </div>
+        </div>
+      </section>
 
-    /* The philosophy */
-    .approach { padding-bottom: 104px; }
-    .approach-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 100px; margin-top: 33px; align-items: center; }
-    .approach .section-title { max-width: 600px; }
-    .approach-copy { padding-top: 4px; }
-    .approach-copy p { color: var(--muted); font-size: 14px; line-height: 1.9; }
-    .approach-copy p + p { margin-top: 16px; }
-    .approach-copy .text-link { margin-top: 24px; }
-    .principle-line { display: flex; align-items: center; gap: 14px; margin-top: 56px; }
-    .principle-line::before { content: ""; width: 27px; height: 1px; background: linear-gradient(90deg, #8fb9ef, #bc8cda, #e9b2d0); }
-    .principle-line p { color: #939099; font-size: 10px; letter-spacing: .025em; }
+      <section class="pillars section" id="disciplines">
+        <div class="container">
+          <div class="section-top reveal">
+            <div>
+              <p class="eyebrow muted">02 / How we move you forward</p>
+              <h2 class="section-heading">Big-picture thinking.<br><em>Real-world doing.</em></h2>
+            </div>
+            <p class="section-aside">Three connected disciplines.<br>One continuous move forward.</p>
+          </div>
+          <div class="cards">
+            <article class="glass-card reveal">
+              <div class="card-top">
+                <span class="card-index">01 —</span>
+                <div class="micro" aria-hidden="true">
+                  <svg viewBox="0 0 60 40" fill="none"><path d="M2 31L13 24L23 27L34 14L43 18L57 5" stroke="#bcb3cc" stroke-opacity=".28" stroke-width="1.5"/><path class="spark-path" d="M2 31L13 24L23 27L34 14L43 18L57 5" stroke="#a394c4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle class="spark-dot" cx="57" cy="5" r="3" fill="#a99aca"/></svg>
+                </div>
+              </div>
+              <p class="eyebrow">Strategic clarity</p>
+              <h3>Think<br>clearly.</h3>
+              <p class="body-copy">Find your true north. Align your ambition, sharpen your positioning, and make the choices that matter.</p>
+              <button class="card-link" data-detail="clarity">Make the right next move <span class="arrow" aria-hidden="true">↗</span></button>
+            </article>
+            <article class="glass-card reveal" style="--delay:.1s">
+              <div class="card-top">
+                <span class="card-index">02 —</span>
+                <div class="micro" aria-hidden="true"><div class="orbit-micro"></div><span class="orbit-core"></span></div>
+              </div>
+              <p class="eyebrow">Venture building</p>
+              <h3>Build<br>boldly.</h3>
+              <p class="body-copy">Move from possibility to proof. Shape, test, and build businesses people need — and believe in.</p>
+              <button class="card-link" data-detail="venture">Bring the vision to life <span class="arrow" aria-hidden="true">↗</span></button>
+            </article>
+            <article class="glass-card reveal" style="--delay:.2s">
+              <div class="card-top">
+                <span class="card-index">03 —</span>
+                <div class="micro" aria-hidden="true"><span class="pulse-dot"></span></div>
+              </div>
+              <p class="eyebrow">Connected growth</p>
+              <h3>Grow<br>intentionally.</h3>
+              <p class="body-copy">Build momentum that compounds. Connect your people, systems, and market around lasting growth.</p>
+              <button class="card-link" data-detail="growth">Create lasting momentum <span class="arrow" aria-hidden="true">↗</span></button>
+            </article>
+          </div>
+          <p class="pillars-note reveal">Not separate services. A connected way of building what’s next.</p>
+        </div>
+      </section>
 
-    /* The four connected growth disciplines */
-    .pillars { background: #f3f3f7; position: relative; padding-top: 105px; padding-bottom: 110px; border-top: 1px solid #eeeeF3; border-bottom: 1px solid #eeeeF3; }
-    .section-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 60px; margin-bottom: 56px; }
-    .section-heading .section-title { margin-top: 25px; }
-    .section-heading > p { font-size: 13px; color: var(--muted); max-width: 265px; line-height: 1.9; padding-bottom: 5px; }
-    .pillars-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding-bottom: 76px; }
-    .pillar-slot:nth-child(even) { transform: translateY(76px); }
-    .pillar-card { border-radius: 25px; background: #fff; padding: 28px 31px 30px; border: 1px solid rgba(255,255,255,.95); box-shadow: 0 4px 16px rgba(31,27,51,.025); min-height: 468px; position: relative; overflow: hidden; transition: box-shadow .5s var(--ease), transform .5s var(--ease); }
-    .pillar-card:hover { box-shadow: 0 18px 60px #50436b0c; }
-    .pillar-top { display: flex; align-items: center; justify-content: space-between; }
-    .pillar-number { font-size: 9px; color: #aaa6b2; letter-spacing: .08em; }
-    .pillar-tag { color: #a39baF; font-size: 8px; letter-spacing: .13em; text-transform: uppercase; }
-    .pillar-visual { height: 226px; position: relative; display: grid; place-items: center; margin: 1px -15px 0; }
-    .pillar-card h3 { font-size: 24px; line-height: 1.2; letter-spacing: -.045em; }
-    .pillar-card .pillar-description { color: #89858e; font-size: 12px; line-height: 1.85; max-width: 340px; margin-top: 12px; padding-right: 10px; }
-    .pillar-bottom { display: flex; align-items: center; justify-content: space-between; margin-top: 23px; }
-    .pillar-bottom > span { color: #aaa5b1; font-size: 8px; letter-spacing: .08em; }
-    .circle-button { height: 31px; width: 31px; border: 1px solid #e9e6ee; border-radius: 50%; background: transparent; display: grid; place-items: center; transition: background .3s, transform .4s var(--ease), border-color .3s; }
-    .circle-button .icon { width: 13px; height: 13px; }
-    .circle-button:hover { background: #eeE8fa; border-color: #dcd0f0; transform: rotate(90deg); }
-    .visual-glow { position: absolute; width: 190px; height: 160px; border-radius: 50%; filter: blur(26px); background: #e4eafa; opacity: .6; }
-    .orbit-system { position: relative; width: 174px; height: 174px; display: grid; place-items: center; }
-    .orbit-ring { position: absolute; border: 1px solid #dbe3f4; border-radius: 50%; inset: 0; }
-    .orbit-ring.inner { inset: 25px; border-color: #d9dff0; }
-    .orbit-ring.outer { inset: -24px; border-style: dashed; opacity: .4; }
-    .orbit-center { width: 57px; height: 57px; border-radius: 50%; background: linear-gradient(150deg, white, #e5eafc); border: 1px solid white; display: grid; place-items: center; box-shadow: 0 5px 20px #8c9ecf20, inset 0 2px 4px white; color: #8293bc; }
-    .orbit-center .icon { width: 23px; height: 23px; stroke-width: 1.2; }
-    .orbit-traveler { position: absolute; inset: 0; animation: spin 22s linear infinite; }
-    .orbit-traveler::before { content: ""; position: absolute; width: 9px; height: 9px; top: -4px; left: calc(50% - 4px); border-radius: 50%; background: linear-gradient(135deg, #b5cdfc, #7d9cd9); box-shadow: 0 0 0 5px #fff9, 0 0 12px #a8bbf55c; }
-    .orbit-traveler.alt { inset: 25px; animation-duration: 16s; animation-direction: reverse; }
-    .orbit-traveler.alt::before { width: 7px; height: 7px; background: #b9a5de; }
-    .micro-label { position: absolute; padding: 7px 11px; font-size: 8px; background: #ffffffde; border: 1px solid white; border-radius: 7px; box-shadow: 0 5px 20px #46355d07; color: #8b859c; letter-spacing: .015em; white-space: nowrap; }
-    .coaching-label { bottom: 29px; right: calc(50% - 138px); transform: rotate(-5deg); }
-    .alignment-visual .visual-glow { background: #eee1fb; }
-    .alignment-network { position: relative; width: 292px; height: 170px; }
-    .alignment-network > svg { position: absolute; width: 100%; height: 100%; }
-    .alignment-node { position: absolute; display: flex; align-items: center; gap: 7px; font-size: 8px; color: #93839e; background: #ffffffe8; border: 1px solid #f0e7f8; padding: 8px 12px; border-radius: 8px; box-shadow: 0 3px 12px #85739506; }
-    .alignment-node::before { content: ""; width: 4px; height: 4px; border-radius: 50%; background: #bba0d8; animation: node-pulse 4s ease-in-out infinite; }
-    .alignment-node.n1 { top: 9px; left: 10px; }
-    .alignment-node.n2 { bottom: 13px; left: 22px; }
-    .alignment-node.n2::before { animation-delay: -1.3s; }
-    .alignment-node.n3 { right: 0; top: 70px; }
-    .alignment-node.n3::before { animation-delay: -2.6s; }
-    .alignment-hub { position: absolute; top: 56px; left: 112px; width: 57px; height: 57px; display: grid; place-items: center; color: #a58bbc; border: 1px solid #fff; background: linear-gradient(135deg, #fdfaff, #e7d8f6); border-radius: 17px; box-shadow: 0 5px 20px #baa4ce25; }
-    .alignment-hub::after { content: ""; position: absolute; inset: -12px; border: 1px solid #e9def3; border-radius: 25px; animation: hub-pulse 4s ease-in-out infinite; }
-    .revenue-visual .visual-glow { background: #e4e4fc; width: 245px; }
-    .chart { position: relative; width: 285px; height: 156px; }
-    .chart > svg { width: 100%; height: 100%; overflow: visible; }
-    .chart-line { stroke-dasharray: 330; stroke-dashoffset: 330; animation: draw-chart 6s var(--ease) infinite; }
-    .chart-end { animation: node-pulse 3s ease-in-out infinite; }
-    .chart-tag { top: -7px; right: -2px; padding: 6px 9px; display: flex; align-items: center; gap: 6px; color: #9485bf; }
-    .chart-tag .icon { width: 11px; height: 11px; }
-    .chart-caption { position: absolute; bottom: -15px; left: 1px; right: 0; display: flex; justify-content: space-between; font-size: 7px; color: #aaa2b6; letter-spacing: .06em; }
-    .market-visual .visual-glow { background: #fae4ef; }
-    .globe { width: 165px; height: 165px; position: relative; }
-    .globe > svg { width: 100%; height: 100%; }
-    .globe-point { position: absolute; top: 41px; right: 40px; width: 7px; height: 7px; background: #d6a2bd; border: 2px solid white; border-radius: 50%; box-shadow: 0 0 0 1px #dbb0c8; }
-    .globe-point::after { content: ""; position: absolute; inset: -8px; border: 1px solid #d8a8c5; border-radius: 50%; animation: pulse 3s ease-out infinite; }
-    .globe-point.second { top: 102px; right: 96px; width: 5px; height: 5px; opacity: .6; }
-    .globe-point.second::after { animation-delay: -1.5s; }
-    .market-label { right: calc(50% - 144px); bottom: 39px; transform: rotate(5deg); display: flex; gap: 7px; align-items: center; }
-    .market-label .icon { width: 12px; height: 12px; }
-    .pillars-note { text-align: center; margin-top: 49px; display: flex; gap: 9px; align-items: center; justify-content: center; font-size: 10px; color: #929099; }
-    .pillars-note .icon { width: 13px; height: 13px; color: #9f8bbd; }
+      <section class="section container" id="framework">
+        <div class="section-top reveal">
+          <div>
+            <p class="eyebrow muted">03 / The How Framework™</p>
+            <h2 class="section-heading">Good growth<br>is a <em class="highlight">system.</em></h2>
+          </div>
+          <p class="section-aside">Progress isn’t a straight line. It’s a cycle of sharper questions, braver choices, and better ways forward.</p>
+        </div>
+        <div class="framework-grid">
+          <div class="growth-system reveal" aria-label="The connected growth loop">
+            <div class="growth-glow" aria-hidden="true"></div>
+            <svg class="system-rings" viewBox="0 0 400 400" fill="none" aria-hidden="true">
+              <defs><linearGradient id="ring-gradient" x1="0" y1="0" x2="400" y2="400" gradientUnits="userSpaceOnUse"><stop stop-color="#b4cdef"/><stop offset=".5" stop-color="#d4c1e8"/><stop offset="1" stop-color="#e9cadb"/></linearGradient></defs>
+              <circle cx="200" cy="200" r="182" stroke="#e9e5ee"/>
+              <circle cx="200" cy="200" r="135" stroke="url(#ring-gradient)" stroke-width=".8"/>
+              <circle cx="200" cy="200" r="102" stroke="#ded9e7" stroke-dasharray="2 7" stroke-width=".6"/>
+              <path d="M200 18V98M382 200H302M200 382V302M18 200H98" stroke="#ded9e7" stroke-width=".7"/>
+            </svg>
+            <div class="system-orbit" aria-hidden="true"></div>
+            <div class="system-center" aria-hidden="true"><span class="wordmark">how.</span></div>
+            <button class="system-node node-0 active" data-step="0" aria-controls="step-panel-0" aria-pressed="true"><span>01</span> Discover</button>
+            <button class="system-node node-1" data-step="1" aria-controls="step-panel-1" aria-pressed="false"><span>02</span> Design</button>
+            <button class="system-node node-2" data-step="2" aria-controls="step-panel-2" aria-pressed="false"><span>03</span> Build</button>
+            <button class="system-node node-3" data-step="3" aria-controls="step-panel-3" aria-pressed="false"><span>04</span> Evolve</button>
+            <span class="system-footnote">A living framework. Not a fixed formula.</span>
+          </div>
+          <div class="steps reveal" style="--delay:.15s">
+            <div class="step">
+              <h3><button class="step-button" id="step-button-0" data-step="0" aria-expanded="true" aria-controls="step-panel-0"><span class="step-number">01</span><span class="step-title">Find the real opportunity.</span><span class="step-icon" aria-hidden="true">+</span></button></h3>
+              <div class="step-panel" id="step-panel-0" role="region" aria-labelledby="step-button-0">We listen deeply, challenge assumptions, and look for what others miss. Together, we find the intersection of what’s possible and what’s worth doing.<span class="step-output">The outcome / A clear, shared starting point</span></div>
+            </div>
+            <div class="step">
+              <h3><button class="step-button" id="step-button-1" data-step="1" aria-expanded="false" aria-controls="step-panel-1"><span class="step-number">02</span><span class="step-title">Give ambition a direction.</span><span class="step-icon" aria-hidden="true">+</span></button></h3>
+              <div class="step-panel" id="step-panel-1" role="region" aria-labelledby="step-button-1" hidden>We turn insight into a focused strategy: a compelling proposition, a viable business model, and a practical route forward. Every choice connects to the bigger picture.<span class="step-output">The outcome / A strategy you can act on</span></div>
+            </div>
+            <div class="step">
+              <h3><button class="step-button" id="step-button-2" data-step="2" aria-expanded="false" aria-controls="step-panel-2"><span class="step-number">03</span><span class="step-title">Make the meaningful move.</span><span class="step-icon" aria-hidden="true">+</span></button></h3>
+              <div class="step-panel" id="step-panel-2" role="region" aria-labelledby="step-button-2" hidden>We roll up our sleeves. From first prototypes to go-to-market systems, we help you launch, learn, and turn the right ideas into something real.<span class="step-output">The outcome / Real-world proof, not just plans</span></div>
+            </div>
+            <div class="step">
+              <h3><button class="step-button" id="step-button-3" data-step="3" aria-expanded="false" aria-controls="step-panel-3"><span class="step-number">04</span><span class="step-title">Learn. Refine. Go again.</span><span class="step-icon" aria-hidden="true">+</span></button></h3>
+              <div class="step-panel" id="step-panel-3" role="region" aria-labelledby="step-button-3" hidden>We make learning a growth habit. Evidence sharpens the strategy, systems unlock the next stage, and each cycle leaves your team stronger than before.<span class="step-output">The outcome / Momentum that compounds</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    /* A horizontal, scroll-opened window */
-    .perspective { padding-bottom: 102px; }
-    .perspective-intro { text-align: center; }
-    .perspective-intro .section-title { margin-top: 26px; font-size: clamp(36px, 4.3vw, 58px); }
-    .perspective-intro > p { font-size: 13px; color: var(--muted); margin-top: 22px; }
-    .canvas-window { --open: 1; position: relative; height: 445px; margin-top: 55px; border-radius: 25px; overflow: hidden; isolation: isolate; }
-    .js .canvas-window { --open: 0; }
-    .canvas-scene { position: absolute; inset: 0; background: #171724; overflow: hidden; transform: translateX(calc((1 - var(--open)) * 35px)) scale(calc(1.05 - var(--open) * .05)); }
-    .canvas-aura { position: absolute; width: 780px; height: 600px; right: -170px; top: -160px; background: radial-gradient(ellipse at 35% 25%, #698dcd55, transparent 45%), radial-gradient(ellipse at 55% 55%, #b98dba42, transparent 50%), radial-gradient(ellipse at 75% 85%, #ccb5df20, transparent 50%); filter: blur(35px); animation: canvas-breathe 12s ease-in-out infinite alternate; }
-    .canvas-top { position: absolute; z-index: 2; inset: 31px 34px auto; display: flex; justify-content: space-between; color: #d2cfdc; }
-    .canvas-brand { font-weight: 600; font-size: 17px; letter-spacing: -.06em; }
-    .canvas-top .eyebrow { font-size: 8px; font-weight: 400; color: #a8a2b7; padding-top: 6px; }
-    .growth-path { position: absolute; width: 110%; height: 100%; bottom: -3%; left: 0; }
-    .growth-path .path-light { stroke-dasharray: 3 1200; animation: pathway 11s linear infinite; }
-    .canvas-copy { position: absolute; bottom: 47px; left: 46px; z-index: 2; }
-    .canvas-copy p { color: #a5a0b5; font-size: 8px; letter-spacing: .12em; text-transform: uppercase; margin-bottom: 14px; }
-    .canvas-copy h3 { color: #f8f5ff; font-size: clamp(37px, 4vw, 54px); line-height: 1.1; letter-spacing: -.05em; }
-    .canvas-copy h3 .serif { color: #d1bade; font-size: 1.12em; }
-    .canvas-coordinate { position: absolute; right: 34px; bottom: 28px; display: flex; align-items: center; gap: 8px; color: #a8a0b7; font-size: 8px; letter-spacing: .03em; }
-    .canvas-coordinate .status-dot { background: #c5b0e2; width: 4px; height: 4px; }
-    .canvas-coordinate .status-dot::after { display: none; }
-    .canvas-curtain { position: absolute; top: -1px; bottom: -1px; width: calc(50% + 1px); z-index: 5; background: var(--paper); pointer-events: none; }
-    .canvas-curtain.left { left: -1px; transform: translateX(calc(var(--open) * -101%)); }
-    .canvas-curtain.right { right: -1px; transform: translateX(calc(var(--open) * 101%)); }
-    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 55px; }
-    .stat { padding: 0 45px; border-left: 1px solid var(--line); }
-    .stat:first-child { padding-left: 0; border-left: 0; }
-    .stat:last-child { padding-right: 0; }
-    .stat-number { font-size: 57px; line-height: 1.1; font-weight: 450; letter-spacing: -.055em; display: flex; align-items: baseline; }
-    .odometer { display: inline-flex; height: 1.1em; overflow: hidden; vertical-align: bottom; }
-    .digit-window { width: .65em; height: 1.1em; overflow: hidden; }
-    .digit-reel { display: flex; flex-direction: column; transition: transform 2s var(--ease); will-change: transform; }
-    .digit-reel span { height: 1.1em; line-height: 1.1em; text-align: left; flex-shrink: 0; }
-    .stat-suffix { margin-left: 8px; color: #aaa3b5; font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-size: 28px; font-weight: 400; letter-spacing: -.02em; }
-    .stat h3 { font-size: 12px; font-weight: 500; margin-top: 12px; letter-spacing: -.015em; }
-    .stat p { font-size: 10px; color: #96909f; margin-top: 5px; line-height: 1.8; }
+      <section class="section perspective container" id="perspective">
+        <div class="section-top reveal">
+          <div>
+            <p class="eyebrow muted">04 / From our point of view</p>
+            <h2 class="section-heading">A fresh <em>perspective.</em></h2>
+          </div>
+          <p class="section-aside">Ideas for the in-between.<br>Where you are. And where you could go.</p>
+        </div>
+        <div class="perspective-grid">
+          <button class="insight reveal" data-detail="thinking">
+            <div class="insight-art pane-art" aria-hidden="true"><div class="pane"></div><div class="pane"></div><div class="pane"></div></div>
+            <div class="insight-content">
+              <div class="insight-meta"><span>Connected growth</span><span>Field note 001</span></div>
+              <div class="insight-bottom"><h3>Growth isn’t a department.<br>It’s a way of thinking.</h3><span class="arrow" aria-hidden="true">↗</span></div>
+            </div>
+          </button>
+          <button class="insight reveal" data-detail="direction" style="--delay:.1s">
+            <div class="insight-art ripple-art" aria-hidden="true"><div class="ripple-circle"></div><div class="ripple-circle"></div><div class="ripple-circle"></div><div class="ripple-circle"></div><div class="art-pearl"></div></div>
+            <div class="insight-content">
+              <div class="insight-meta"><span>Strategic clarity</span><span>Field note 002</span></div>
+              <div class="insight-bottom"><h3>Before you move faster,<br>get clear on where.</h3><span class="arrow" aria-hidden="true">↗</span></div>
+            </div>
+          </button>
+        </div>
+      </section>
 
-    /* A partnership, not a presentation */
-    .partnership { border-top: 1px solid var(--line); padding-top: 100px; }
-    .partnership-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; margin-top: 31px; }
-    .partnership-left .section-title { font-size: clamp(36px, 4.2vw, 56px); }
-    .partnership-left > p { color: var(--muted); font-size: 13px; line-height: 1.9; max-width: 340px; margin-top: 22px; }
-    .process-tabs { display: flex; flex-direction: column; gap: 0; margin-top: 37px; max-width: 390px; }
-    .process-tab { text-align: left; width: 100%; background: transparent; display: flex; align-items: center; gap: 18px; padding: 19px 0; border-bottom: 1px solid var(--line); color: #9b97a2; transition: color .3s; }
-    .process-tab:first-child { border-top: 1px solid var(--line); }
-    .process-tab > span:first-child { font-size: 9px; font-variant-numeric: tabular-nums; }
-    .process-tab .tab-label { font-size: 13px; font-weight: 500; flex: 1; }
-    .process-tab .icon { width: 15px; height: 15px; opacity: 0; transform: translateX(-8px); transition: opacity .3s, transform .4s var(--ease); }
-    .process-tab[aria-selected="true"] { color: var(--ink); }
-    .process-tab[aria-selected="true"] > span:first-child { color: #a388c4; }
-    .process-tab[aria-selected="true"] .icon { opacity: 1; transform: translateX(0); }
-    .process-tab:hover { color: #6e558e; }
-    .process-panel { align-self: center; position: relative; border-radius: 26px; padding: 29px 35px 34px; background: linear-gradient(145deg, #f3f3f8, #f8f5fb 70%, #fbf6f9); border: 1px solid #eeebf2; min-height: 458px; overflow: hidden; }
-    .process-panel-top { display: flex; justify-content: space-between; align-items: center; font-size: 8px; color: #aca4b5; letter-spacing: .1em; }
-    .process-panel-top .icon { width: 14px; height: 14px; color: #b0a5c0; }
-    .process-art { height: 200px; position: relative; display: grid; place-items: center; }
-    .focus-rings { width: 125px; height: 125px; position: relative; display: grid; place-items: center; transition: transform 1s var(--ease); }
-    .focus-rings::before, .focus-rings::after { content: ""; position: absolute; border: 1px solid #d8cfe5; border-radius: 29px; inset: 0; transform: rotate(-12deg); transition: transform 1s var(--ease), border-radius 1s var(--ease); }
-    .focus-rings::after { transform: rotate(12deg); inset: 13px; border-color: #d7cae4; background: #ffffff21; }
-    .focus-core { width: 65px; height: 65px; border-radius: 20px; display: grid; place-items: center; position: relative; z-index: 1; border: 1px solid #fff; background: linear-gradient(145deg, #fff, #e1d7ec); box-shadow: 0 10px 35px #9c87b11b, inset 0 1px 5px white; }
-    .focus-core .icon { width: 26px; height: 26px; color: #a395b5; stroke-width: 1.1; }
-    .process-orbit-dot { position: absolute; width: 6px; height: 6px; background: #c2b0d7; border: 1px solid white; border-radius: 50%; top: 25px; right: 4px; box-shadow: 0 0 0 5px #fff5; transition: transform 1s var(--ease); }
-    .process-panel[data-step="1"] .focus-rings::before { transform: rotate(45deg); border-radius: 38px; }
-    .process-panel[data-step="1"] .focus-rings::after { transform: rotate(-45deg); border-radius: 30px; }
-    .process-panel[data-step="1"] .process-orbit-dot { transform: translate(-110px, 68px); }
-    .process-panel[data-step="2"] .focus-rings::before { transform: rotate(90deg); border-radius: 50%; }
-    .process-panel[data-step="2"] .focus-rings::after { transform: rotate(-90deg); border-radius: 50%; }
-    .process-panel[data-step="2"] .process-orbit-dot { transform: translate(-60px, -35px); }
-    .process-panel h3 { font-size: 25px; letter-spacing: -.045em; line-height: 1.2; }
-    .process-panel .process-description { font-size: 12px; line-height: 1.85; color: #89818f; margin-top: 13px; }
-    .process-outcome { display: flex; gap: 8px; align-items: center; margin-top: 24px; padding-top: 20px; border-top: 1px solid #e4dfeb; color: #92869e; font-size: 9px; }
-    .process-outcome .icon { width: 12px; height: 12px; }
-    .process-content { transition: opacity .2s, transform .3s var(--ease); }
-    .process-content.switching { opacity: 0; transform: translateY(7px); }
+      <section class="contact-section" id="contact">
+        <div class="reveal">
+          <svg class="contact-symbol" viewBox="0 0 32 32" fill="none" aria-hidden="true"><path d="M16 1C16 11 21 16 31 16C21 16 16 21 16 31C16 21 11 16 1 16C11 16 16 11 16 1Z" stroke="currentColor" stroke-width="1"/></svg>
+          <h2>You bring the <em>what.</em><br>We’ll bring the <em>how.</em></h2>
+          <p>A big idea. A new chapter. A question you can’t shake.<br>Whatever’s next, let’s find a way forward.</p>
+          <button class="btn" data-contact>Start a conversation <span class="arrow" aria-hidden="true">↗</span></button>
+        </div>
+      </section>
+    </main>
 
-    /* The invitation */
-    .invitation { position: relative; overflow: hidden; text-align: center; padding: 117px 24px 133px; border-top: 1px solid var(--line); isolation: isolate; }
-    .invitation-glow { position: absolute; z-index: -1; width: 800px; height: 350px; left: calc(50% - 400px); bottom: -100px; background: radial-gradient(ellipse at 22% 45%, #d2e0ff 0%, transparent 55%), radial-gradient(ellipse at 65% 35%, #e4dafa 0%, transparent 60%), radial-gradient(ellipse at 85% 65%, #f4d8e6 0%, transparent 55%); filter: blur(55px); opacity: .8; }
-    .invitation .eyebrow { color: #96919d; font-size: 9px; }
-    .invitation h2 { font-size: clamp(46px, 6vw, 80px); line-height: 1.08; letter-spacing: -.06em; margin-top: 27px; }
-    .invitation h2 .serif { font-size: 1.09em; letter-spacing: -.045em; }
-    .invitation > div > p { font-size: 12px; color: #8a8492; margin-top: 23px; }
-    .reflected-cta { position: relative; display: inline-block; margin-top: 30px; }
-    .reflected-cta .button { min-width: 208px; }
-    .cta-reflection { position: absolute; top: calc(100% + 5px); left: 0; right: 0; transform: scaleY(-1); pointer-events: none; opacity: .12; mask-image: linear-gradient(to top, #000 0%, transparent 76%); -webkit-mask-image: linear-gradient(to top, #000 0%, transparent 76%); }
-    .invitation .email-link { display: block; width: fit-content; margin: 52px auto 0; font-size: 10px; color: #8c8595; transition: color .3s; }
-    .invitation .email-link:hover { color: var(--ink); }
-    .footer { padding: 33px 0 27px; border-top: 1px solid var(--line); }
-    .footer-main { display: flex; align-items: center; justify-content: space-between; gap: 30px; }
-    .footer .wordmark { font-size: 28px; }
-    .footer-note { font-size: 9px; color: #8a8491; margin-left: 21px; letter-spacing: .02em; }
-    .footer-brand { display: flex; align-items: center; }
-    .back-top { display: inline-flex; align-items: center; gap: 12px; font-size: 9px; color: #89838f; }
-    .back-top .icon { width: 12px; height: 12px; }
-    .footer-bottom { display: flex; justify-content: space-between; margin-top: 28px; font-size: 8px; color: #aaa4af; }
-    .footer-bottom button { background: transparent; padding: 0; font-size: 8px; color: inherit; }
-    .footer-bottom button:hover { color: var(--ink); }
-    .footer-bottom-right { display: flex; gap: 24px; }
+    <footer class="container">
+      <div class="footer-main">
+        <div class="footer-brand">
+          <a class="wordmark" href="#home" aria-label="The How Company home">how<span class="co">.co</span></a>
+          <p class="footer-tagline">The How Company.<br>Ambition, made possible.</p>
+        </div>
+        <div class="footer-links">
+          <a href="mailto:hello@how.co">hello@how.co ↗</a>
+          <button data-detail="privacy">Privacy</button>
+          <button id="back-top">Back to top ↑</button>
+        </div>
+      </div>
+      <div class="footer-bottom"><span>© <span id="year">2026</span> The How Company. All possibilities reserved.</span><span><span class="status-dot" aria-hidden="true"></span> Independent by design. Connected by nature.</span></div>
+    </footer>
+  </div>
 
-    /* Real, lightweight conversations */
-    dialog {
-      width: min(540px, calc(100% - 32px));
-      max-height: calc(100dvh - 48px);
-      border: 1px solid #fff;
-      border-radius: 25px;
-      background: #fbfbfd;
-      color: var(--ink);
-      padding: 37px;
-      box-shadow: 0 25px 100px #211b4030;
-      overflow-y: auto;
-    }
-    dialog::backdrop { background: rgba(28,24,42,.25); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); }
-    dialog[open] { animation: modal-in .4s var(--ease); }
-    .dialog-close { position: absolute; top: 19px; right: 19px; width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: #eeecf3; color: #7d748a; }
-    .dialog-close .icon { width: 13px; height: 13px; }
-    .dialog-eyebrow { font-size: 8px; color: #9b8cae; letter-spacing: .12em; text-transform: uppercase; margin: 3px 0 17px; }
-    dialog h2 { font-size: 36px; font-weight: 500; line-height: 1.12; letter-spacing: -.055em; padding-right: 14px; }
-    dialog .dialog-intro { font-size: 12px; line-height: 1.85; color: var(--muted); margin: 15px 0 23px; }
-    .contact-form { display: grid; gap: 15px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .field { display: flex; flex-direction: column; gap: 5px; }
-    .field label { font-size: 10px; font-weight: 500; color: #706779; }
-    .field label span { font-weight: 400; color: #aaa1b0; }
-    .field input, .field select, .field textarea { width: 100%; min-width: 0; padding: 11px 12px; border: 1px solid #e4dfe9; border-radius: 9px; background: white; color: var(--ink); font-size: 12px; transition: border-color .3s; }
-    .field input:hover, .field select:hover, .field textarea:hover { border-color: #c1afd5; }
-    .field input::placeholder, .field textarea::placeholder { color: #b2aab9; }
-    .field textarea { resize: vertical; min-height: 82px; }
-    .contact-form .button { margin-top: 3px; width: 100%; }
-    .form-note { font-size: 9px; line-height: 1.7; text-align: center; color: #a49aaa; }
-    .form-status { font-size: 11px; color: #756083; padding: 13px; border-radius: 9px; background: #eee8f5; }
-    .form-status[hidden] { display: none; }
-    .service-list { list-style: none; padding: 0; margin: 26px 0; display: grid; gap: 15px; }
-    .service-list li { display: flex; align-items: flex-start; gap: 10px; font-size: 12px; color: #7a7283; }
-    .service-list .icon { width: 14px; height: 14px; margin-top: 3px; color: #a38cbe; }
-    .service-fit { border-top: 1px solid var(--line); padding-top: 19px; margin-bottom: 25px; font-size: 11px; color: #93889e; }
-    #privacy-dialog p:not(.dialog-eyebrow) { font-size: 12px; color: var(--muted); line-height: 1.9; margin-top: 19px; }
+  <dialog id="detail-modal" aria-labelledby="detail-title">
+    <button class="modal-close" aria-label="Close dialog">×</button>
+    <p class="eyebrow modal-eyebrow" id="detail-category"></p>
+    <h2 class="modal-title" id="detail-title"></h2>
+    <div class="modal-copy" id="detail-content"></div>
+  </dialog>
 
-    @keyframes morph {
-      0% { border-radius: 44% 56% 68% 32% / 50% 36% 64% 50%; transform: translate(-25px, 5px) rotate(-10deg) scale(.97); }
-      50% { border-radius: 65% 35% 42% 58% / 39% 57% 43% 61%; transform: translate(20px, -12px) rotate(5deg) scale(1.05); }
-      100% { border-radius: 38% 62% 54% 46% / 66% 32% 68% 34%; transform: translate(10px, 20px) rotate(12deg) scale(1); }
-    }
-    @keyframes hue-drift { from { filter: blur(48px) hue-rotate(-8deg); } to { filter: blur(48px) hue-rotate(13deg); } }
-    @keyframes pulse { 0% { transform: scale(.5); opacity: .75; } 80%, 100% { transform: scale(1.6); opacity: 0; } }
-    @keyframes node-pulse { 0%, 100% { opacity: .5; } 50% { opacity: 1; } }
-    @keyframes hub-pulse { 0%, 100% { transform: scale(1); opacity: .6; } 50% { transform: scale(1.04); opacity: 1; } }
-    @keyframes spin { to { transform: rotate(360deg); } }
-    @keyframes levitate { 0%, 100% { translate: 0 0; } 50% { translate: 0 -7px; } }
-    @keyframes travel { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -702; } }
-    @keyframes draw-chart { 0% { stroke-dashoffset: 330; opacity: 0; } 12% { opacity: 1; } 62%, 85% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
-    @keyframes pathway { from { stroke-dashoffset: 0; } to { stroke-dashoffset: -1203; } }
-    @keyframes canvas-breathe { from { transform: translate(-10px, -10px) scale(.95); } to { transform: translate(25px, 15px) scale(1.1); } }
-    @keyframes modal-in { from { opacity: 0; transform: translateY(20px) scale(.97); } to { opacity: 1; transform: translateY(0) scale(1); } }
+  <dialog id="contact-modal" aria-labelledby="contact-title">
+    <button class="modal-close" aria-label="Close dialog">×</button>
+    <p class="eyebrow modal-eyebrow">A good place to start</p>
+    <h2 class="modal-title" id="contact-title">What’s on your <em>horizon?</em></h2>
+    <p class="modal-copy">Tell us a little about you and what you’re imagining. No polished pitch required.</p>
+    <form class="contact-form" id="contact-form">
+      <div class="form-row">
+        <div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" placeholder="Alex Morgan" required maxlength="100"></div>
+        <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="alex@company.com" required maxlength="180"></div>
+      </div>
+      <div class="field"><label for="interest">Where could we help?</label><select id="interest" name="interest"><option>Finding strategic clarity</option><option>Building a new venture</option><option>Unlocking the next stage of growth</option><option>Let’s figure it out together</option></select></div>
+      <div class="field"><label for="message">A little about your next big thing</label><textarea id="message" name="message" placeholder="We’re thinking about…" required maxlength="3000"></textarea></div>
+      <button type="submit" class="btn">Compose introduction <span class="arrow" aria-hidden="true">↗</span></button>
+      <p class="form-note">This opens your email app with an introduction ready to send. Your details aren’t stored on this site.</p>
+      <p class="form-note" id="form-status" role="status"></p>
+    </form>
+  </dialog>
 
-    @media (min-width: 1600px) {
-      .hero { padding-top: 195px; padding-bottom: 50px; }
-      .hero h1 { font-size: 126px; }
-      .signal-map { margin-top: 45px; }
-    }
-    @media (max-width: 1100px) {
-      .container { width: calc(100% - 72px); }
-      .header { width: calc(100% - 42px); }
-      .brand-caption { display: none; }
-      .approach-grid { gap: 55px; }
-      .partnership-grid { gap: 55px; }
-      .pillar-card { padding: 25px; }
-      .builder-types { gap: 34px; font-size: 15px; }
-      .stat { padding-inline: 32px; }
-    }
-    @media (max-width: 800px) {
-      .container { width: calc(100% - 48px); }
-      .section { padding-block: 80px; }
-      .desktop-nav { gap: 23px; }
-      .desktop-nav a { font-size: 10px; }
-      .hero { padding-top: 157px; }
-      .hero h1 { font-size: 87px; }
-      .hero-description { font-size: 14px; }
-      .hero-chip { width: 161px; padding: 14px; }
-      .hero-chip.two { left: calc(50% - 80px); }
-      .hero-chip.one { left: 7px; }
-      .hero-chip.three { right: 7px; }
-      .chip-label { font-size: 10px; }
-      .builder-strip { padding-block: 30px; }
-      .builder-strip > p { max-width: 125px; font-size: 9px; }
-      .builder-types { gap: 22px; font-size: 12px; }
-      .builder-types span { gap: 7px; }
-      .builder-types .icon { width: 15px; height: 15px; }
-      .approach-grid { gap: 35px; grid-template-columns: 1.15fr 1fr; }
-      .approach-copy p { font-size: 12px; }
-      .section-heading { gap: 35px; margin-bottom: 40px; }
-      .section-heading > p { max-width: 215px; font-size: 12px; }
-      .pillars-grid { gap: 18px; padding-bottom: 55px; }
-      .pillar-slot:nth-child(even) { transform: translateY(55px); }
-      .pillar-card { padding: 23px; min-height: 455px; border-radius: 21px; }
-      .pillar-card h3 { font-size: 22px; }
-      .pillar-visual { height: 218px; transform: scale(.86); margin-inline: -25px; }
-      .pillar-card .pillar-description { font-size: 11px; padding-right: 0; }
-      .pillar-bottom { margin-top: 19px; }
-      .pillar-tag { font-size: 7px; }
-      .pillar-bottom > span { font-size: 7px; }
-      .canvas-window { height: 390px; }
-      .canvas-copy { left: 32px; bottom: 40px; }
-      .stat { padding-inline: 24px; }
-      .stat-number
+  <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+  <script>
+    (() => {
+      'use strict';
+      const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+      const desktop = matchMedia('(min-width: 900px) and (hover: hover)');
+      const content = document.getElementById('smooth-content');
+      let smooth = false, current = window.scrollY, scrollRAF = 0, lastTime = 0;
+
+      function updateHeight() {
+        if (smooth) document.body.style.height = content.scrollHeight + 'px';
+      }
+      function scrollFrame(time) {
+        const dt = Math.min(time - (lastTime || time - 16.67), 64);
+        lastTime = time;
+        current += (window.scrollY - current) * (1 - Math.exp(-dt * .0095));
+        if (Math.abs(window.scrollY - current) < .08) current = window.scrollY;
+        content.style.transform = `translate3d(0,${-current}px,0)`;
+        scrollRAF = requestAnimationFrame(scrollFrame);
+      }
+      function configureScroll() {
+        const next = !reduced.matches && desktop.matches && 'ResizeObserver' in window;
+        if (next === smooth) return;
+        cancelAnimationFrame(scrollRAF);
+        const y = window.scrollY;
+        smooth = next;
+        if (smooth) {
+          current = y; lastTime = 0;
+          Object.assign(content.style, {position:'fixed', top:'0', left:'0', width:'100%', willChange:'transform', transform:`translate3d(0,${-y}px,0)`});
+          updateHeight();
+          scrollRAF = requestAnimationFrame(scrollFrame);
+        } else {
+          content.style.cssText = '';
+          document.body.style.height = '';
+          window.scrollTo(0, y);
+        }
+      }
+      configureScroll();
+      if ('ResizeObserver' in window) new ResizeObserver(updateHeight).observe(content);
+      desktop.addEventListener('change', configureScroll);
+      window.addEventListener('resize', updateHeight, {passive:true});
+      document.fonts.ready.then(updateHeight);
+
+      function goTo(target) {
+        const y = target.id === 'home' || target.id === 'main' ? 0 :
+          target.getBoundingClientRect().top + (smooth ? current : window.scrollY) - (innerWidth > 760 ? 108 : 91);
+        window.scrollTo({top:Math.max(0,y), behavior:'instant'});
+      }
+      document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', event => {
+          const target = document.querySelector(link.getAttribute('href'));
+          if (!target) return;
+          event.preventDefault();
+          closeNav();
+          goTo(target);
+          if (link.classList.contains('skip-link')) {
+            target.setAttribute('tabindex', '-1');
+            target.focus({preventScroll:true});
+          }
+        });
+      });
+      document.getElementById('back-top').addEventListener('click', () => goTo(document.getElementById('home')));
+      content.addEventListener('focusin', event => {
+        if (!smooth || event.target.closest('dialog')) return;
+        const rect = event.target.getBoundingClientRect();
+        if (rect.top < 95 || rect.bottom > innerHeight) {
+          window.scrollTo(0, Math.max(0, current + rect.top - innerHeight * .35));
+        }
+      });
+
+      const menu = document.querySelector('.menu-toggle');
+      const nav = document.querySelector('.nav');
+      function closeNav() {
+        menu.setAttribute('aria-expanded','false');
+        menu.setAttribute('aria-label','Open navigation');
+        nav.classList.remove('is-open');
+      }
+      menu.addEventListener('click', () => {
+        const open = menu.getAttribute('aria-expanded') !== 'true';
+        menu.setAttribute('aria-expanded', String(open));
+        menu.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+        nav.classList.toggle('is-open', open);
+      });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeNav(); });
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const reveals = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const revealObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              revealObserver.unobserve(entry.target);
+            }
+          });
+        }, {threshold:.08, rootMargin:'0px 0px -25px 0px'});
+        reveals.forEach(el => revealObserver.observe(el));
+        document.documentElement.classList.add('motion-ready');
+      } else reveals.forEach(el => el.classList.add('is-visible'));
+
+      const counters = document.querySelectorAll('.odometer');
+      counters.forEach(counter => {
+        counter.textContent = '';
+        for (const digit of counter.dataset.number) {
+          const reel = document.createElement('span');
+          reel.className = 'digit';
+          reel.setAttribute('aria-hidden','true');
+          const track = document.createElement('span');
+          track.className = 'digit-track';
+          track.dataset.target = digit;
+          for (let i = 0; i < 10; i++) {
+            const value = document.createElement('span');
+            value.textContent = i;
+            track.append(value);
+          }
+          reel.append(track);
+          counter.append(reel);
+        }
+        if (counter.dataset.suffix) {
+          const suffix = document.createElement('span');
+          suffix.className = 'number-suffix';
+          suffix.setAttribute('aria-hidden','true');
+          suffix.textContent = counter.dataset.suffix;
+          counter.append(suffix);
+        }
+      });
+      function runCounter(el) {
+        el.querySelectorAll('.digit-track').forEach((track, i) => {
+          track.style.transitionDelay = reduced.matches ? '0ms' : `${i * 120}ms`;
+          track.style.transform = `translateY(-${Number(track.dataset.target) * 1.04}em)`;
+        });
+      }
+      if ('IntersectionObserver' in window && !reduced.matches) {
+        const counterObserver = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) { runCounter(entry.target); counterObserver.unobserve(entry.target); }
+          });
+        }, {threshold:.6});
+        counters.forEach(el => counterObserver.observe(el));
+      } else counters.forEach(runCounter);
+
+      function selectStep(index) {
+        document.querySelectorAll('.step-button').forEach((button, i) => {
+          const active = index === i;
+          button.setAttribute('aria-expanded', String(active));
+          document.getElementById('step-panel-' + i).hidden = !active;
+        });
+        document.querySelectorAll('.system-node').forEach((button, i) => {
+          button.classList.toggle('active', index === i);
+          button.setAttribute('aria-pressed', String(index === i));
+        });
+        updateHeight();
+      }
+      document.querySelectorAll('[data-step]').forEach(button => {
+        button.addEventListener('click', () => selectStep(Number(button.dataset.step)));
+      });
+
+      const details = {
+        clarity: {
+          category:'01 / Strategic clarity', title:'Make room for the right things.',
+          body:'<p>When everything feels like an opportunity, focus becomes your most valuable advantage. We help you see your business clearly — its strengths, its tensions, and the space it can uniquely own.</p><h3>From a bigger picture to a sharper plan.</h3><ul><li>Business and brand strategy</li><li>Customer insight and opportunity mapping</li><li>Positioning and value proposition</li><li>Leadership alignment and actionable roadmaps</li></ul><p>The result is a shared direction your team can use to make better decisions, every day.</p>',
+          contact:true
+        },
+        venture: {
+          category:'02 / Venture building', title:'Possibility, meet proof.',
+          body:'<p>The best way to understand an idea is to put it into the world. We combine strategic thinking with hands-on building to take new ventures from a first conviction to meaningful market evidence.</p><h3>Built with you. Not handed to you.</h3><ul><li>Venture concepts and business models</li><li>Prototyping and proposition testing</li><li>Brand, product, and customer experience</li><li>Launch planning and early-market validation</li></ul><p>We design around the riskiest assumptions first, so every investment in building is also an investment in learning.</p>',
+          contact:true
+        },
+        growth: {
+          category:'03 / Connected growth', title:'Momentum, without the silos.',
+          body:'<p>Growth is rarely held back by a shortage of effort. More often, the right efforts aren’t connected. We help align your commercial engine, team, and operating rhythm around what moves the business forward.</p><h3>A stronger system for your next stage.</h3><ul><li>Growth strategy and go-to-market design</li><li>Customer journeys and commercial experiments</li><li>Team alignment and operating systems</li><li>Measurement, learning loops, and prioritisation</li></ul><p>Not a short-lived spike. The foundations for progress your team can keep building on.</p>',
+          contact:true
+        },
+        thinking: {
+          category:'Field note 001 / Connected growth', title:'Growth isn’t a department. It’s a way of thinking.',
+          body:'<p>Give growth to a department and you risk making it everyone else’s afterthought. Marketing generates demand. Product builds features. Sales closes deals. Each team can hit its targets while the business stands still.</p><h3>The space between teams is where growth gets lost.</h3><p>A promise made in a campaign has to survive the product experience. A lesson learned in sales should shape what gets built next. A customer’s reason for leaving is strategic insight, not just a retention metric.</p><p>Connected growth starts with a common question: what needs to become true for the business to move forward? That question makes it easier to choose a shared priority, bring the right people together, and measure the whole journey.</p><h3>Start smaller than you think.</h3><p>Choose one customer moment. Bring together the people who influence it. Agree on what better looks like, run a small experiment, and review what happened together. The habit matters more than the ceremony.</p><p>Growth becomes more durable when it stops belonging to a department and starts belonging to the way the company works.</p>'
+        },
+        direction: {
+          category:'Field note 002 / Strategic clarity', title:'Before you move faster, get clear on where.',
+          body:'<p>Speed feels like progress. Calendars fill up, launches multiply, and the work keeps moving. But movement and momentum aren’t the same thing. Momentum has a direction.</p><h3>Clarity is a practical advantage.</h3><p>A clear strategy isn’t a beautifully written statement. It’s a small set of choices that makes the next decision easier: who you serve, what matters to them, why you can win, and what you won’t do.</p><p>When those choices are shared, teams don’t need permission for every move. They can act independently without pulling the company in different directions.</p><h3>Ask three questions before accelerating.</h3><ul><li>What meaningful change are we trying to create?</li><li>What do we need to learn before committing more?</li><li>What will we stop doing to give this a real chance?</li></ul><p>You don’t need certainty. You need enough shared conviction to take a deliberate next step — and enough openness to change direction when the evidence changes.</p><p>Sometimes the fastest way forward starts with a better pause.</p>'
+        },
+        privacy: {
+          category:'A note on privacy', title:'Simple. Transparent. Considerate.',
+          body:'<p>This page does not use analytics, advertising cookies, or a tracking form. Introduction details stay in your browser until you choose to open your email application and send them.</p><p>Fonts and the Three.js library load from Google Fonts and unpkg. These providers receive the technical information needed to deliver those resources, such as your IP address and browser information.</p><p>If you email us, your message is handled through the relevant email providers. Please don’t include sensitive personal information in your introduction.</p><p>For questions, contact <a href="mailto:hello@how.co"><u>hello@how.co</u></a>.</p>'
+        }
+      };
+      const detailModal = document.getElementById('detail-modal');
+      const contactModal = document.getElementById('contact-modal');
+      function openModal(modal) {
+        closeNav();
+        document.querySelectorAll('dialog[open]').forEach(d => d.close());
+        if (typeof modal.showModal === 'function') modal.showModal();
+        else modal.setAttribute('open','');
+        document.documentElement.style.overflow = 'hidden';
+        modal.scrollTop = 0;
+      }
+      function closeModal(modal) {
+        if (typeof modal.close === 'function') modal.close();
+        else { modal.removeAttribute('open'); document.documentElement.style.overflow = ''; }
+      }
+      document.querySelectorAll('dialog').forEach(modal => {
+        modal.querySelector('.modal-close').addEventListener('click', () => closeModal(modal));
+        modal.addEventListener('close', () => { document.documentElement.style.overflow = ''; updateHeight(); });
+        modal.addEventListener('click', event => {
+          if (event.target !== modal) return;
+          const r = modal.getBoundingClientRect();
+          if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) closeModal(modal);
+        });
+      });
+      document.addEventListener('click', event => {
+        const contact = event.target.closest('[data-contact]');
+        if (contact) { openModal(contactModal); return; }
+        const trigger = event.target.closest('[data-detail]');
+        if (!trigger) return;
+        const data = details[trigger.dataset.detail];
+        if (!data) return;
+        document.getElementById('detail-category').textContent = data.category;
+        document.getElementById('detail-title').textContent = data.title;
+        document.getElementById('detail-content').innerHTML = data.body + (data.contact ? '<button class="btn" data-contact>Let’s talk about your next move <span class="arrow" aria-hidden="true">↗</span></button>' : '');
+        openModal(detailModal);
+      });
+      document.getElementById('contact-form').addEventListener('submit', event => {
+        event.preventDefault();
+        const data = new FormData(event.target);
+        const subject = `${data.get('interest')} — ${data.get('name')}`;
+        const body = `Hello, The How Company,\n\n${data.get('message')}\n\nI'm interested in: ${data.get('interest')}\n\n${data.get('name')}\n${data.get('email')}`;
+        const mailto = `mailto:hello@how.co?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.location.href = mailto;
+        document.getElementById('form-status').textContent = 'Your introduction is ready to open in your email app. If nothing opens, you can write directly to hello@how.co.';
+      });
+
+      /* A small, deterministic 3D simplex-noise implementation. */
+      function simplex3D() {
+        const grad = [[1,1,0],[-1,1,0],[1,-1,0],[-1,-1,0],[1,0,1],[-1,0,1],[1,0,-1],[-1,0,-1],[0,1,1],[0,-1,1],[0,1,-1],[0,-1,-1]];
+        const p = Array.from({length:256}, (_,i) => i);
+        let seed = 117;
+        const random = () => { seed = (seed * 16807) % 2147483647; return (seed - 1) / 2147483646; };
+        for (let i=255;i>0;i--) { const j=Math.floor(random()*(i+1)); [p[i],p[j]]=[p[j],p[i]]; }
+        const perm = new Uint16Array(512);
+        for(let i=0;i<512;i++) perm[i]=p[i&255];
+        const corner = (g,x,y,z) => {
+          let t=.6-x*x-y*y-z*z;
+          if(t<0)return 0;
+          t*=t; const v=grad[g%12];
+          return t*t*(v[0]*x+v[1]*y+v[2]*z);
+        };
+        return (x,y,z) => {
+          const s=(x+y+z)/3, i=Math.floor(x+s), j=Math.floor(y+s), k=Math.floor(z+s);
+          const t=(i+j+k)/6, x0=x-i+t, y0=y-j+t, z0=z-k+t;
+          let i1,j1,k1,i2,j2,k2;
+          if(x0>=y0){
+            if(y0>=z0){i1=1;j1=0;k1=0;i2=1;j2=1;k2=0;}
+            else if(x0>=z0){i1=1;j1=0;k1=0;i2=1;j2=0;k2=1;}
+            else{i1=0;j1=0;k1=1;i2=1;j2=0;k2=1;}
+          }else{
+            if(y0<z0){i1=0;j1=0;k1=1;i2=0;j2=1;k2=1;}
+            else if(x0<z0){i1=0;j1=1;k1=0;i2=0;j2=1;k2=1;}
+            else{i1=0;j1=1;k1=0;i2=1;j2=1;k2=0;}
+          }
+          const ii=i&255,jj=j&255,kk=k&255;
+          return 32*(corner(perm[ii+perm[jj+perm[kk]]],x0,y0,z0)
+            +corner(perm[ii+i1+perm[jj+j1+perm[kk+k1]]],x0-i1+1/6,y0-j1+1/6,z0-k1+1/6)
+            +corner(perm[ii+i2+perm[jj+j2+perm[kk+k2]]],x0-i2+1/3,y0-j2+1/3,z0-k2+1/3)
+            +corner(perm[ii+1+perm[jj+1+perm[kk+1]]],x0-.5,y0-.5,z0-.5));
+        };
+      }
+
+      let artStarted = false, heroVisible = true, renderer = null, artBroken = false;
+      const heroArt = document.querySelector('.hero-art');
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(entries => { heroVisible = entries[0].isIntersecting; }, {rootMargin:'150px'}).observe(heroArt);
+      }
+
+      function initArt() {
+        if (artStarted || artBroken || reduced.matches || !window.THREE) return;
+        const T = window.THREE;
+        try {
+          const canvas = document.querySelector('.hero-canvas');
+          renderer = new T.WebGLRenderer({canvas, antialias:true, alpha:false, powerPreference:'high-performance'});
+          renderer.setPixelRatio(Math.min(devicePixelRatio,1.75));
+          renderer.outputColorSpace = T.SRGBColorSpace;
+          renderer.toneMapping = T.ACESFilmicToneMapping;
+          renderer.toneMappingExposure = 1.18;
+          const scene = new T.Scene();
+          scene.background = new T.Color('#fbfbfd');
+          const camera = new T.PerspectiveCamera(33,1,.1,100);
+          camera.position.set(0,.12,8);
+          const group = new T.Group();
+          scene.add(group);
+
+          /* A real studio environment supplies the broad reflections that glass needs. */
+          const studio = new T.Scene();
+          studio.add(new T.Mesh(new T.BoxGeometry(24,24,24),new T.MeshBasicMaterial({color:0xe5e5ee,side:T.BackSide})));
+          function lightCard(w,h,pos,color,target=[0,0,0]) {
+            const card = new T.Mesh(new T.PlaneGeometry(w,h),new T.MeshBasicMaterial({color:new T.Color(...color),side:T.DoubleSide}));
+            card.position.set(...pos); card.lookAt(...target); studio.add(card);
+          }
+          lightCard(5,12,[-5,2,3],[4,4,4]);
+          lightCard(4,10,[6,1,0],[2.8,2.9,3.5]);
+          lightCard(10,4,[0,7,0],[4,4,4]);
+          lightCard(3,7,[-4,-1,-6],[.7,1.2,2.6]);
+          lightCard(4,8,[5,0,-5],[2.2,1.3,2.4]);
+          lightCard(2,9,[1,0,7],[.20,.19,.25]);
+          const pmrem = new T.PMREMGenerator(renderer);
+          const environment = pmrem.fromScene(studio,.06);
+          scene.environment = environment.texture;
+          studio.traverse(obj => { if(obj.isMesh){obj.geometry.dispose();obj.material.dispose();} });
+          pmrem.dispose();
+
+          const geometry = new T.TorusKnotGeometry(1,.335,180,28,2,3);
+          const positions = geometry.attributes.position;
+          const original = new Float32Array(positions.array);
+          const originalNormals = new Float32Array(geometry.attributes.normal.array);
+          const material = new T.MeshPhysicalMaterial({
+            color:0xf4efff,metalness:0,roughness:.105,transmission:1,
+            thickness:1.35,ior:1.46,clearcoat:1,clearcoatRoughness:.07,
+            envMapIntensity:1.1,attenuationColor:new T.Color('#c7b1ee'),
+            attenuationDistance:4.5,iridescence:.28,iridescenceIOR:1.35,
+            iridescenceThicknessRange:[100,380]
+          });
+          const knot = new T.Mesh(geometry,material);
+          knot.rotation.set(.3,-.45,-.32);
+          group.add(knot);
+
+          const halo = new T.Mesh(new T.TorusGeometry(1.95,.0035,6,150),new T.MeshBasicMaterial({color:0xb7a1d1,transparent:true,opacity:.29}));
+          halo.rotation.set(1.23,.22,-.15);
+          halo.position.y=-.58;
+          group.add(halo);
+
+          const shadowCanvas = document.createElement('canvas');
+          shadowCanvas.width=256;shadowCanvas.height=256;
+          const ctx=shadowCanvas.getContext('2d');
+          const shadowGradient=ctx.createRadialGradient(128,128,0,128,128,125);
+          shadowGradient.addColorStop(0,'rgba(87,65,130,0.20)');
+          shadowGradient.addColorStop(.4,'rgba(111,90,152,0.10)');
+          shadowGradient.addColorStop(1,'rgba(111,90,152,0)');
+          ctx.fillStyle=shadowGradient;ctx.fillRect(0,0,256,256);
+          const shadow = new T.Mesh(new T.PlaneGeometry(4.8,3.1),new T.MeshBasicMaterial({map:new T.CanvasTexture(shadowCanvas),transparent:true,depthWrite:false,opacity:.6}));
+          shadow.rotation.x=-Math.PI/2;
+          shadow.position.set(0,-1.85,0);
+          group.add(shadow);
+
+          scene.add(new T.AmbientLight(0xffffff,.4));
+          const key=new T.DirectionalLight(0xffffff,2.4);key.position.set(-3,5,5);scene.add(key);
+          const lights=[new T.PointLight(0x78a7ff,26),new T.PointLight(0xa885ff,22),new T.PointLight(0xffacd7,28)];
+          lights.forEach(light=>scene.add(light));
+          const noise=simplex3D();
+          let width=1,height=1,mobile=false,frame=0,mouseX=0,mouseY=0;
+
+          function sizeArt() {
+            const rect=heroArt.getBoundingClientRect();
+            width=Math.max(rect.width,1);height=Math.max(rect.height,1);
+            mobile=innerWidth<=760;
+            renderer.setSize(width,height,false);
+            camera.aspect=width/height;
+            camera.fov=mobile?39:33;
+            camera.updateProjectionMatrix();
+            const worldHeight=2*Math.tan(T.MathUtils.degToRad(camera.fov/2))*8;
+            group.position.x=mobile?0:worldHeight*camera.aspect*.245;
+            group.position.y=mobile?.03:.04;
+            group.scale.setScalar(mobile?1.12:1.02);
+          }
+          sizeArt();
+          if ('ResizeObserver' in window) new ResizeObserver(sizeArt).observe(heroArt);
+          else window.addEventListener('resize',sizeArt,{passive:true});
+          window.addEventListener('pointermove',event=>{
+            if(event.pointerType==='touch')return;
+            mouseX=(event.clientX/innerWidth-.5)*2;
+            mouseY=(event.clientY/innerHeight-.5)*2;
+          },{passive:true});
+          document.addEventListener('pointerleave',()=>{mouseX=0;mouseY=0;});
+          canvas.addEventListener('webglcontextlost',event=>{
+            event.preventDefault();artBroken=true;heroArt.classList.remove('is-3d');
+          });
+
+          const start=performance.now();
+          function render(time) {
+            requestAnimationFrame(render);
+            if(reduced.matches || artBroken || !heroVisible || document.hidden)return;
+            const t=(time-start)*.001;
+            const array=positions.array;
+            for(let i=0;i<array.length;i+=3){
+              const x=original[i],y=original[i+1],z=original[i+2];
+              const displacement=noise(x*.85+t*.105,y*.85-t*.08,z*.85+t*.06)*.095;
+              array[i]=x+originalNormals[i]*displacement;
+              array[i+1]=y+originalNormals[i+1]*displacement;
+              array[i+2]=z+originalNormals[i+2]*displacement;
+            }
+            positions.needsUpdate=true;
+            if(frame++%3===0)geometry.computeVertexNormals();
+            knot.rotation.x=.3+Math.sin(t*.13)*.11;
+            knot.rotation.y=-.45+t*.073;
+            knot.rotation.z=-.32+Math.sin(t*.1)*.055;
+            knot.position.y=Math.sin(t*.45)*.045;
+            lights.forEach((light,i)=>{
+              const angle=t*.16+i*Math.PI*2/3;
+              light.position.set(group.position.x+Math.cos(angle)*3.1,Math.sin(angle)*2.5,2.3+Math.cos(angle*.7)*.5);
+            });
+            camera.position.x+=(mouseX*.19-camera.position.x)*.025;
+            camera.position.y+=(.12-mouseY*.12-camera.position.y)*.025;
+            camera.lookAt(0,0,0);
+            renderer.render(scene,camera);
+            if(!heroArt.classList.contains('is-3d'))heroArt.classList.add('is-3d');
+          }
+          artStarted=true;
+          requestAnimationFrame(render);
+        } catch(error) {
+          artBroken=true;
+          if(renderer)renderer.dispose();
+          heroArt.classList.remove('is-3d');
+        }
+      }
+      initArt();
+      reduced.addEventListener('change',()=>{
+        configureScroll();
+        if(reduced.matches){
+          reveals.forEach(el=>el.classList.add('is-visible'));
+          counters.forEach(runCounter);
+        }else initArt();
+      });
+      window.addEventListener('load',()=>{
+        updateHeight();
+        if(location.hash) {
+          const target=document.getElementById(location.hash.slice(1));
+          if(target)goTo(target);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
