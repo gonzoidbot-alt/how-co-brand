@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f2ec">
+  <meta name="description" content="The How Company. Strategic clarity, aligned leadership, and hands-on growth for ambitious company builders. Less theory. More forward.">
+  <title>how.co — Ambition, meet direction.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@400..900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #f4f2ec;
+      --ink: #1a1a18;
+      --blue: #254dff;
+      --muted: #73736c;
+      --line: #cfcec6;
+      --serif: "Fraunces", Georgia, serif;
+      --sans: "Inter", Arial, sans-serif;
+      --ease: cubic-bezier(.22, 1, .36, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 40px; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
+    ::selection { background: var(--blue); color: var(--paper); }
+    a { color: inherit; text-decoration: none; }
+    button, input, select, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button { color: inherit; }
+    button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 2px solid var(--blue); outline-offset: 6px; }
+    button { cursor: pointer; }
+    svg { display: block; }
+    .shell { width: min(100% - 112px, 1328px); margin-inline: auto; }
+    .eyebrow { font-size: 10px; font-weight: 550; letter-spacing: .13em; line-height: 1.6; text-transform: uppercase; }
+    .serif { font-family: var(--serif); font-weight: 450; font-style: italic; }
+    .blue { color: var(--blue); }
+    .progress { position: fixed; top: 0; left: 0; z-index: 100; width: 100%; height: 3px; background: var(--ink); transform: scaleX(0); transform-origin: left; pointer-events: none; }
+    .skip { position: fixed; left: 20px; top: -60px; z-index: 200; background: var(--ink); color: var(--paper); padding: 12px 20px; }
+    .skip:focus { top: 12px; }
+    .magnetic { transform: translate(var(--mx, 0px), var(--my, 0px)); transition: transform .45s var(--ease), background .25s, color .25s; will-change: transform; }
+    .site-header { display: flex; align-items: center; justify-content: space-between; height: 104px; border-bottom: 1px solid var(--line); }
+    .logo { font-size: 35px; font-weight: 750; letter-spacing: -.075em; line-height: 1; }
+    .logo-dot { color: var(--blue); }
+    .header-description { margin-right: auto; margin-left: 70px; font-size: 11px; line-height: 1.5; color: var(--muted); }
+    .nav { display: flex; align-items: center; gap: 33px; font-size: 12px; font-weight: 500; }
+    .text-link { position: relative; }
+    .text-link::after { content: ""; position: absolute; height: 1px; left: 0; right: 0; bottom: -5px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform .35s var(--ease); }
+    .text-link:hover::after { transform: scaleX(1); }
+    .button { border: 1px solid var(--ink); border-radius: 100px; padding: 15px 22px; display: inline-flex; align-items: center; justify-content: center; gap: 30px; background: transparent; font-size: 12px; font-weight: 500; }
+    .button:hover { background: var(--ink); color: var(--paper); }
+    .button .arrow { font-size: 18px; line-height: 1; }
+    .hero { padding-top: 33px; }
+    .hero-topline { display: flex; justify-content: space-between; align-items: center; margin-bottom: 29px; }
+    .hero-topline .right { color: var(--muted); }
+    .hero-topline .right span { margin-left: 30px; color: var(--ink); }
+    .hero-stage { position: relative; }
+    .hero-title { margin: 0 0 0 -8px; font-size: clamp(100px, 14.25vw, 205px); line-height: .88; letter-spacing: -.075em; font-weight: 650; }
+    .hero-word { display: block; width: max-content; position: relative; animation: word-drift 7s ease-in-out infinite; }
+    .hero-word:nth-child(2) { font-family: var(--serif); font-size: 1.025em; font-style: italic; font-weight: 500; letter-spacing: -.065em; line-height: 1.03; animation-delay: -2.3s; margin-left: -3px; }
+    .hero-word:nth-child(3) { animation-delay: -4.6s; }
+    .hero-word .char { display: inline-block; animation: letter-arrive 1.2s var(--ease) both; animation-delay: var(--delay, 0s); transition: color .3s; }
+    .hero-word .char:hover { color: var(--blue); }
+    .hero-word .period { color: var(--blue); }
+    @keyframes letter-arrive { from { opacity: 0; transform: translateY(70px) rotate(4deg); filter: blur(12px); } to { opacity: 1; transform: translateY(0) rotate(0); filter: blur(0); } }
+    @keyframes word-drift { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+    .hero-note { position: absolute; top: 19px; right: 3%; display: flex; align-items: center; gap: 26px; }
+    .signal { width: 110px; height: 110px; color: var(--blue); animation: signal-turn 35s linear infinite; }
+    @keyframes signal-turn { to { transform: rotate(360deg); } }
+    .hero-note p { font-size: 11px; line-height: 1.65; margin: 0; }
+    .hero-note .note-index { display: block; color: var(--muted); margin-bottom: 13px; font-size: 9px; letter-spacing: .1em; }
+    .hero-copy { position: absolute; bottom: 7px; right: 1%; width: 29%; max-width: 360px; }
+    .hero-copy p { font-size: clamp(15px, 1.35vw, 19px); line-height: 1.55; letter-spacing: -.035em; margin: 0 0 24px; max-width: 330px; }
+    .round-link { display: inline-flex; align-items: center; gap: 14px; font-size: 12px; font-weight: 550; }
+    .round-arrow { width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; background: var(--blue); color: var(--paper); font-size: 21px; transition: transform .3s var(--ease); }
+    .round-link:hover .round-arrow { transform: rotate(45deg); }
+    .hero-bottom { display: flex; justify-content: space-between; align-items: center; padding: 37px 0 25px; margin-top: 29px; }
+    .live-dot { display: inline-block; width: 6px; height: 6px; margin-right: 9px; background: var(--blue); border-radius: 50%; box-shadow: 0 0 0 4px rgb(37 77 255 / 8%); }
+    .scroll-cue { display: flex; align-items: center; gap: 27px; }
+    .scroll-cue span:last-child { font-size: 18px; }
+    .conviction { border-top: 1px solid var(--line); margin-top: 16px; height: 132vh; min-height: 900px; padding-top: 108px; position: relative; }
+    .conviction-inner { position: sticky; top: 80px; padding-bottom: 78px; }
+    .section-label { display: flex; align-items: baseline; gap: 23px; }
+    .section-label .index { color: var(--muted); font-variant-numeric: tabular-nums; }
+    .conviction-layout { display: grid; grid-template-columns: 1fr 3fr; gap: 25px; }
+    .conviction-aside { display: flex; flex-direction: column; justify-content: space-between; padding-top: 10px; padding-bottom: 8px; }
+    .conviction-caption { color: var(--muted); font-size: 11px; line-height: 1.7; }
+    .scrub-marks { display: flex; gap: 5px; margin-top: 18px; }
+    .scrub-marks span { display: block; width: 23px; height: 2px; background: var(--line); }
+    .scrub-marks span.active { background: var(--blue); }
+    .morph-headline { margin: 0; font-family: var(--serif); font-size: clamp(52px, 6.8vw, 98px); font-weight: 420; letter-spacing: -.065em; line-height: 1.06; }
+    .morph-line { display: flex; align-items: baseline; gap: .2em; }
+    .morph-word { display: inline-grid; overflow: hidden; vertical-align: bottom; padding: .07em .025em .13em; margin: -.07em -.025em -.13em; }
+    .morph-word > span { grid-area: 1 / 1; white-space: nowrap; will-change: transform, opacity; }
+    .morph-word .from { opacity: 0; }
+    .morph-word .to { opacity: 1; }
+    .morph-word.emphasis { color: var(--blue); font-style: italic; }
+    .conviction-bottom { display: flex; justify-content: space-between; align-items: end; margin-top: 44px; gap: 40px; }
+    .conviction-bottom p { font-size: 15px; line-height: 1.75; max-width: 370px; margin: 0; letter-spacing: -.015em; }
+    .conviction-bottom .eyebrow { color: var(--muted); text-align: right; white-space: nowrap; }
+    .marquee { overflow: hidden; background: var(--blue); color: var(--paper); padding: 25px 0 28px; }
+    .marquee-track { display: flex; width: max-content; animation: marquee-travel 28s linear infinite; }
+    .marquee-group { display: flex; align-items: center; flex-shrink: 0; gap: 42px; padding-right: 42px; }
+    .marquee-word { font-size: clamp(32px, 4.4vw, 64px); font-weight: 550; line-height: 1; letter-spacing: -.055em; white-space: nowrap; }
+    .marquee-star { font-family: var(--serif); font-size: 60px; font-weight: 300; line-height: .5; }
+    @keyframes marquee-travel { to { transform: translateX(-50%); } }
+    .approach { padding-block: 111px 108px; }
+    .section-intro { display: flex; justify-content: space-between; align-items: end; margin-top: 30px; margin-bottom: 63px; gap: 40px; }
+    .section-title { margin: 0; font-size: clamp(42px, 4.6vw, 66px); font-weight: 500; line-height: 1.06; letter-spacing: -.06em; }
+    .section-title .serif { font-size: 1.09em; }
+    .intro-copy { font-size: 14px; line-height: 1.7; max-width: 283px; margin: 0 0 5px; color: var(--muted); }
+    .pillar { border-top: 1px solid var(--line); transition: padding .65s var(--ease), opacity .45s; opacity: .59; padding-block: 0; }
+    .pillar:last-child { border-bottom: 1px solid var(--line); }
+    .pillar.active { opacity: 1; padding-block: 10px 26px; }
+    .pillar-trigger { width: 100%; border: 0; background: transparent; display: grid; grid-template-columns: 65px 1fr 45px; align-items: center; padding: 26px 0; text-align: left; gap: 12px; }
+    .pillar-number { align-self: start; margin-top: 15px; font-size: 11px; font-weight: 450; }
+    .pillar.active .pillar-number { color: var(--blue); }
+    .pillar-title { font-family: var(--serif); font-size: clamp(30px, 3.1vw, 44px); font-weight: 430; letter-spacing: -.055em; line-height: 1.1; transition: font-size .65s var(--ease), font-weight .65s; }
+    .pillar.active .pillar-title { font-size: clamp(42px, 5.35vw, 76px); font-style: italic; font-weight: 500; }
+    .pillar-plus { width: 34px; height: 34px; position: relative; justify-self: end; transition: transform .55s var(--ease), color .3s; }
+    .pillar-plus::before, .pillar-plus::after { content: ""; position: absolute; background: currentColor; width: 17px; height: 1px; top: 50%; left: 8px; }
+    .pillar-plus::after { transform: rotate(90deg); }
+    .pillar.active .pillar-plus { transform: rotate(45deg); color: var(--blue); }
+    .pillar-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .65s var(--ease), opacity .45s; opacity: 0; }
+    .pillar.active .pillar-body { grid-template-rows: 1fr; opacity: 1; }
+    .pillar-body-inner { overflow: hidden; }
+    .pillar-content { display: grid; grid-template-columns: 1.35fr 1fr; gap: 50px; margin-left: 77px; padding: 1px 0 12px; }
+    .pillar-content p { margin: 0; font-size: 14px; line-height: 1.75; max-width: 420px; }
+    .pillar-details { padding-top: 1px; }
+    .pillar-tags { color: var(--muted); font-size: 11px; line-height: 1.8; margin-bottom: 21px; }
+    .pillar-tags span + span::before { content: " / "; margin-inline: 7px; color: var(--line); }
+    .pillar-cta { border: 0; border-bottom: 1px solid var(--ink); background: none; padding: 0 0 5px; display: inline-flex; gap: 30px; font-size: 11px; font-weight: 550; }
+    .pillar-cta:hover { color: var(--blue); border-color: var(--blue); }
+    .impact { background: #eae8e1; padding: 72px 0 76px; }
+    .impact-head { display: flex; align-items: start; justify-content: space-between; gap: 25px; }
+    .impact-head .section-title { font-size: clamp(40px, 4vw, 58px); margin-top: 28px; }
+    .impact-note { margin: 0; font-size: 12px; color: var(--muted); line-height: 1.75; text-align: right; }
+    .metrics { display: grid; grid-template-columns: repeat(3, 1fr); margin-top: 64px; }
+    .metric { border-left: 1px solid #c8c7bf; padding-left: 35px; }
+    .metric:first-child { padding-left: 0; border: 0; }
+    .metric-value { display: block; font-size: clamp(75px, 8.4vw, 121px); line-height: 1; letter-spacing: -.09em; font-weight: 450; font-variant-numeric: tabular-nums; }
+    .metric-value .suffix { font-family: var(--serif); font-weight: 350; color: var(--blue); }
+    .metric-label { display: block; font-size: 12px; margin-top: 21px; letter-spacing: -.015em; }
+    .metric-sub { display: block; font-size: 10px; color: var(--muted); margin-top: 7px; }
+    .contact { padding: 110px 0 74px; }
+    .contact-top { display: flex; justify-content: space-between; gap: 20px; }
+    .contact-top > p { margin: 0; font-size: 12px; line-height: 1.7; max-width: 250px; }
+    .contact-main { margin-top: 45px; display: flex; align-items: end; justify-content: space-between; gap: 35px; }
+    .contact-title { margin: 0; font-size: clamp(68px, 10.4vw, 150px); line-height: .92; font-weight: 550; letter-spacing: -.08em; }
+    .contact-title .serif { font-size: 1.11em; letter-spacing: -.075em; }
+    .contact-action { margin-bottom: 11px; text-align: left; display: flex; flex-direction: column; align-items: start; gap: 24px; }
+    .contact-disc { width: 112px; height: 112px; border-radius: 50%; border: 0; background: var(--blue); color: var(--paper); display: grid; place-items: center; }
+    .contact-disc svg { width: 43px; height: 43px; transition: transform .35s var(--ease); }
+    .contact-disc:hover svg { transform: rotate(45deg); }
+    .contact-action p { margin: 0; font-size: 13px; }
+    .footer { border-top: 1px solid var(--line); padding: 28px 0 32px; display: flex; align-items: center; gap: 45px; }
+    .footer .logo { font-size: 28px; }
+    .copyright { font-size: 10px; color: var(--muted); margin-right: auto; }
+    .footer-email { font-size: 11px; }
+    .back-top { display: inline-flex; gap: 20px; align-items: center; font-size: 10px; margin-left: 28px; }
+    .back-top span:last-child { font-size: 17px; }
+    dialog { border: 1px solid var(--line); background: var(--paper); color: var(--ink); padding: 46px; width: min(560px, calc(100% - 32px)); max-height: calc(100dvh - 40px); overflow-y: auto; }
+    dialog::backdrop { background: rgb(26 26 24 / 45%); backdrop-filter: blur(8px); }
+    .dialog-close { position: absolute; top: 19px; right: 20px; width: 30px; height: 30px; font-size: 25px; font-weight: 400; border: 0; background: transparent; }
+    dialog h2 { font-family: var(--serif); font-size: 43px; letter-spacing: -.06em; font-weight: 450; line-height: 1.1; margin: 21px 0 14px; }
+    .dialog-intro { color: var(--muted); font-size: 13px; line-height: 1.65; margin: 0 0 24px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .field { display: flex; flex-direction: column; margin-bottom: 20px; gap: 8px; }
+    .field label { font-size: 10px; letter-spacing: .035em; }
+    .field input, .field select, .field textarea { background: transparent; color: var(--ink); border: 0; border-bottom: 1px solid var(--line); border-radius: 0; padding: 9px 0; width: 100%; min-width: 0; font-size: 13px; }
+    .field select { cursor: pointer; }
+    .field textarea { resize: vertical; min-height: 75px; }
+    .email-button { background: var(--blue); color: var(--paper); border-color: var(--blue); width: 100%; justify-content: space-between; }
+    .form-note { font-size: 10px; line-height: 1.6; color: var(--muted); margin: 13px 0 0; }
+    .form-status { font-size: 12px; line-height: 1.65; margin-top: 14px; color: var(--blue); }
+    @media (min-width: 1600px) {
+      .hero-title { font-size: 219px; }
+    }
+    @media (max-width: 1100px) {
+      .shell { width: calc(100% - 72px); }
+      .header-description { margin-left: 40px; }
+      .nav { gap: 23px; }
+      .hero-note { right: 0; top: 7px; gap: 17px; }
+      .signal { width: 85px; height: 85px; }
+      .hero-note p { font-size: 9px; }
+      .hero-copy { width: 31%; right: 0; bottom: 0; }
+      .hero-copy p { font-size: 14px; margin-bottom: 17px; }
+      .conviction-layout { grid-template-columns: 1fr 3.25fr; }
+      .conviction-aside .section-label { gap: 13px; flex-wrap: wrap; }
+      .conviction-bottom .eyebrow { display: none; }
+      .pillar-tags span { display: block; }
+      .pillar-tags span + span::before { display: none; }
+    }
+    @media (max-width: 760px) {
+      .shell { width: calc(100% - 40px); }
+      .site-header { height: 81px; }
+      .logo { font-size: 31px; }
+      .header-description, .nav-impact { display: none; }
+      .nav { gap: 20px; font-size: 11px; }
+      .nav .button { padding: 11px 15px; gap: 14px; font-size: 10px; }
+      .hero { padding-top: 24px; }
+      .hero-topline { margin-bottom: 32px; }
+      .eyebrow { font-size: 9px; letter-spacing: .1em; }
+      .hero-topline .right { font-size: 8px; }
+      .hero-topline .right span { display: none; }
+      .hero-title { font-size: 23.8vw; margin-left: -4px; line-height: .9; letter-spacing: -.075em; }
+      .hero-word:nth-child(2) { font-size: .69em; line-height: 1.3; margin-left: 0; letter-spacing: -.065em; }
+      .hero-note { top: 0; right: 4%; }
+      .hero-note p { display: none; }
+      .signal { width: 19vw; height: 19vw; max-width: 112px; max-height: 112px; }
+      .hero-copy { position: relative; width: 100%; max-width: none; margin-top: 33px; display: flex; gap: 30px; justify-content: space-between; align-items: end; }
+      .hero-copy p { max-width: 295px; font-size: 15px; margin: 0; }
+      .hero-copy .round-link { flex-shrink: 0; }
+      .hero-copy .round-link .link-label { display: none; }
+      .round-arrow { width: 43px; height: 43px; }
+      .hero-bottom { padding-top: 18px; margin-top: 29px; }
+      .hero-bottom .eyebrow { font-size: 7px; letter-spacing: .05em; }
+      .scroll-cue { gap: 10px; }
+      .live-dot { width: 5px; height: 5px; margin-right: 7px; }
+      .conviction { margin-top: 2px; padding-top: 68px; height: 120vh; min-height: 740px; }
+      .conviction-inner { top: 46px; padding-bottom: 45px; }
+      .conviction-layout { display: block; }
+      .conviction-aside { padding: 0; margin-bottom: 34px; }
+      .conviction-caption { display: none; }
+      .morph-headline { font-size: clamp(37px, 8.7vw, 66px); line-height: 1.16; letter-spacing: -.055em; }
+      .morph-line { gap: .17em; }
+      .conviction-bottom { margin-top: 32px; }
+      .conviction-bottom p { font-size: 14px; max-width: 340px; }
+      .marquee { padding: 22px 0 24px; }
+      .marquee-group { gap: 26px; padding-right: 26px; }
+      .marquee-star { font-size: 41px; }
+      .approach { padding-block: 65px 64px; }
+      .section-intro { display: block; margin-top: 28px; margin-bottom: 36px; }
+      .section-title { font-size: 44px; }
+      .intro-copy { margin-top: 24px; max-width: 330px; font-size: 13px; }
+      .pillar-trigger { grid-template-columns: 27px 1fr 25px; gap: 9px; padding-block: 23px; }
+      .pillar-number { font-size: 9px; margin-top: 8px; }
+      .pillar-title { font-size: clamp(25px, 5.9vw, 38px); }
+      .pillar.active .pillar-title { font-size: clamp(32px, 7.65vw, 52px); }
+      .pillar-plus { width: 25px; }
+      .pillar-plus::before, .pillar-plus::after { width: 14px; left: 5px; }
+      .pillar-content { display: block; margin-left: 36px; padding-right: 25px; }
+      .pillar-content p { font-size: 13px; line-height: 1.7; }
+      .pillar-details { margin-top: 21px; }
+      .pillar-tags { margin-bottom: 15px; font-size: 10px; }
+      .pillar-tags span { display: inline; }
+      .pillar-tags span + span::before { display: inline; margin-inline: 4px; }
+      .pillar.active { padding-block: 4px 15px; }
+      .impact { padding-block: 57px; }
+      .impact-head .section-title { font-size: 41px; margin-top: 24px; }
+      .impact-note { display: none; }
+      .metrics { margin-top: 43px; }
+      .metric { padding-left: 16px; }
+      .metric-value { font-size: clamp(53px, 12.8vw, 90px); letter-spacing: -.09em; }
+      .metric-label { font-size: 10px; margin-top: 16px; line-height: 1.6; }
+      .metric-sub { font-size: 8px; line-height: 1.5; padding-right: 8px; }
+      .contact { padding-block: 65px 50px; }
+      .contact-top > p { font-size: 11px; max-width: 154px; }
+      .contact-main { margin-top: 39px; gap: 12px; align-items: center; }
+      .contact-title { font-size: 13.6vw; }
+      .contact-action { gap: 14px; margin: 0; }
+      .contact-disc { width: 62px; height: 62px; }
+      .contact-disc svg { width: 27px; height: 27px; }
+      .contact-action p { display: none; }
+      .footer { flex-wrap: wrap; gap: 20px; padding-block: 25px; }
+      .footer .logo { font-size: 27px; }
+      .copyright { font-size: 8px; margin-right: 0; }
+      .footer-email { margin-left: auto; font-size: 10px; }
+      .back-top { margin-left: auto; font-size: 9px; }
+      dialog { padding: 35px 25px 27px; }
+      dialog h2 { font-size: 37px; }
+    }
+    @media (max-width: 380px) {
+      .nav .nav-approach { display: none; }
+      .hero-bottom .status-text { max-width: 135px; }
+      .footer-email { margin-left: 0; }
+      .contact-top > p { max-width: 130px; }
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+      .hero-word .char { opacity: 1; transform: none; filter: none; }
+      .magnetic { transform: none !important; }
+      .conviction { height: auto; min-height: 0; padding-bottom: 30px; }
+      .conviction-inner { position: relative; top: 0; }
+      .morph-word > span { will-change: auto; }
+    }
+  </style>
+</head>
+<body id="top">
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="progress" aria-hidden="true"></div>
+
+  <header class="site-header shell">
+    <a class="logo" href="#top" aria-label="The How Company home">how<span class="logo-dot">.</span>co</a>
+    <div class="header-description">Independent minds.<br>Shared ambition.</div>
+    <nav class="nav" aria-label="Main navigation">
+      <a class="text-link nav-approach" href="#approach">Our approach</a>
+      <a class="text-link nav-impact" href="#impact">Our impact</a>
+      <button class="button magnetic" type="button" data-contact>Let’s talk <span class="arrow" aria-hidden="true">↗</span></button>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero shell" aria-labelledby="hero-heading">
+      <div class="hero-topline eyebrow">
+        <span>The How Company®</span>
+        <span class="right">A growth company for company builders <span>[ EST. FOR WHAT’S NEXT ]</span></span>
+      </div>
+      <div class="hero-stage">
+        <h1 class="hero-title" id="hero-heading" aria-label="How companies grow.">
+          <span class="hero-word" data-letters aria-hidden="true">HOW</span>
+          <span class="hero-word" data-letters aria-hidden="true">COMPANIES</span>
+          <span class="hero-word" data-letters aria-hidden="true">GROW.</span>
+        </h1>
+        <div class="hero-note" aria-hidden="true">
+          <svg class="signal" viewBox="0 0 120 120" fill="none">
+            <g stroke="currentColor" stroke-width="1.3">
+              <ellipse cx="60" cy="60" rx="20" ry="55"/>
+              <ellipse cx="60" cy="60" rx="20" ry="55" transform="rotate(30 60 60)"/>
+              <ellipse cx="60" cy="60" rx="20" ry="55" transform="rotate(60 60 60)"/>
+              <ellipse cx="60" cy="60" rx="20" ry="55" transform="rotate(90 60 60)"/>
+              <ellipse cx="60" cy="60" rx="20" ry="55" transform="rotate(120 60 60)"/>
+              <ellipse cx="60" cy="60" rx="20" ry="55" transform="rotate(150 60 60)"/>
+            </g>
+            <circle cx="60" cy="60" r="4" fill="currentColor"/>
+          </svg>
+          <p><span class="note-index">A SIMPLE CONVICTION —</span>Growth isn’t magic.<br>It’s a method.</p>
+        </div>
+        <div class="hero-copy">
+          <p>You’ve got the ambition.<br>We help you turn it into what’s next.<br>Clarity, alignment, and the way forward.</p>
+          <a class="round-link magnetic" href="#approach">
+            <span class="round-arrow" aria-hidden="true">↗</span>
+            <span class="link-label">Find your how</span>
+            <span class="eyebrow" style="position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)">Explore our growth framework</span>
+          </a>
+        </div>
+      </div>
+      <div class="hero-bottom">
+        <div class="eyebrow status-text"><span class="live-dot" aria-hidden="true"></span>Less theory. More forward.</div>
+        <a class="scroll-cue eyebrow" href="#conviction"><span>Good things happen below</span><span aria-hidden="true">↓</span></a>
+      </div>
+    </section>
+
+    <section class="conviction" id="conviction" aria-labelledby="conviction-heading">
+      <div class="conviction-inner shell">
+        <div class="conviction-layout">
+          <div class="conviction-aside">
+            <div class="section-label eyebrow"><span class="index">01 /</span><span>The conviction</span></div>
+            <div class="conviction-caption">
+              A shift in perspective.<br>A change in direction.
+              <div class="scrub-marks" aria-hidden="true"><span class="active"></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div>
+            <h2 class="morph-headline" id="conviction-heading" aria-label="We don't consult. We build the way forward.">
+              <span class="morph-line" aria-hidden="true">
+                <span class="morph-word"><span class="from">We</span><span class="to">We</span></span>
+                <span class="morph-word"><span class="from">don’t</span><span class="to">don’t</span></span>
+                <span class="morph-word"><span class="from">predict.</span><span class="to">consult.</span></span>
+              </span>
+              <span class="morph-line" aria-hidden="true">
+                <span class="morph-word"><span class="from">We</span><span class="to">We</span></span>
+                <span class="morph-word emphasis"><span class="from">create</span><span class="to">build</span></span>
+                <span class="morph-word"><span class="from">the</span><span class="to">the</span></span>
+              </span>
+              <span class="morph-line" aria-hidden="true">
+                <span class="morph-word"><span class="from">next</span><span class="to">way</span></span>
+                <span class="morph-word emphasis"><span class="from">chapter.</span><span class="to">forward.</span></span>
+              </span>
+            </h2>
+            <div class="conviction-bottom">
+              <p>Another deck won’t get you there. We get alongside you, connect the dots, and turn your biggest growth questions into your next decisive moves.</p>
+              <span class="eyebrow">Not from the sidelines.<br>From inside your corner. ↗</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="marquee" role="img" aria-label="Clarity. Alignment. Momentum. Repeat.">
+      <div class="marquee-track" aria-hidden="true">
+        <div class="marquee-group">
+          <span class="marquee-word">CLARITY</span><span class="marquee-star">✳</span>
+          <span class="marquee-word">ALIGNMENT</span><span class="marquee-star">✳</span>
+          <span class="marquee-word">MOMENTUM</span><span class="marquee-star">✳</span>
+          <span class="marquee-word serif">and repeat.</span><span class="marquee-star">✳</span>
+        </div>
+        <div class="marquee-group">
+          <span class="marquee-word">CLARITY</span><span class="marquee-star">✳</span>
+          <span class="marquee-word">ALIGNMENT</span><span class="marquee-star">✳</span>
+          <span class="marquee-word">MOMENTUM</span><span class="marquee-star">✳</span>
+          <span class="marquee-word serif">and repeat.</span><span class="marquee-star">✳</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="approach shell" id="approach" aria-labelledby="approach-heading">
+      <div class="section-label eyebrow"><span class="index">02 /</span><span>The growth framework</span></div>
+      <div class="section-intro">
+        <h2 class="section-title" id="approach-heading">Big ambition.<br><span class="serif">A clear way through.</span></h2>
+        <p class="intro-copy">Four connected disciplines. One shared direction. Built around where you are — and where you want to go.</p>
+      </div>
+
+      <div class="pillars">
+        <article class="pillar active">
+          <h3 style="margin:0">
+            <button class="pillar-trigger" id="pillar-button-1" aria-expanded="true" aria-controls="pillar-panel-1">
+              <span class="pillar-number">01</span><span class="pillar-title">Executive coaching</span><span class="pillar-plus" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="pillar-body" id="pillar-panel-1" role="region" aria-labelledby="pillar-button-1">
+            <div class="pillar-body-inner">
+              <div class="pillar-content">
+                <p>Your company can only go as far as its leaders. We give ambitious founders and executives the space, perspective, and honest challenge to lead what’s next.</p>
+                <div class="pillar-details">
+                  <div class="pillar-tags"><span>Founder partnership</span><span>Leadership clarity</span></div>
+                  <button class="pillar-cta" data-contact data-interest="Executive coaching">Build your leadership <span aria-hidden="true">↗</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="pillar">
+          <h3 style="margin:0">
+            <button class="pillar-trigger" id="pillar-button-2" aria-expanded="false" aria-controls="pillar-panel-2">
+              <span class="pillar-number">02</span><span class="pillar-title">Growth alignment</span><span class="pillar-plus" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="pillar-body" id="pillar-panel-2" role="region" aria-labelledby="pillar-button-2" inert>
+            <div class="pillar-body-inner">
+              <div class="pillar-content">
+                <p>Busy isn’t the same as moving forward. We get your people, priorities, and operating rhythm pulling in the same direction — with a strategy everyone can actually use.</p>
+                <div class="pillar-details">
+                  <div class="pillar-tags"><span>Strategic clarity</span><span>Team alignment</span></div>
+                  <button class="pillar-cta" data-contact data-interest="Growth alignment">Find your shared direction <span aria-hidden="true">↗</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="pillar">
+          <h3 style="margin:0">
+            <button class="pillar-trigger" id="pillar-button-3" aria-expanded="false" aria-controls="pillar-panel-3">
+              <span class="pillar-number">03</span><span class="pillar-title">Revenue optimization</span><span class="pillar-plus" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="pillar-body" id="pillar-panel-3" role="region" aria-labelledby="pillar-button-3" inert>
+            <div class="pillar-body-inner">
+              <div class="pillar-content">
+                <p>More activity isn’t always the answer. Together, we uncover the leverage in your pricing, pipeline, and customer journey — turning untapped potential into sustainable revenue.</p>
+                <div class="pillar-details">
+                  <div class="pillar-tags"><span>Commercial strategy</span><span>Revenue systems</span></div>
+                  <button class="pillar-cta" data-contact data-interest="Revenue optimization">Unlock your next stage <span aria-hidden="true">↗</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+        <article class="pillar">
+          <h3 style="margin:0">
+            <button class="pillar-trigger" id="pillar-button-4" aria-expanded="false" aria-controls="pillar-panel-4">
+              <span class="pillar-number">04</span><span class="pillar-title">Market expansion</span><span class="pillar-plus" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div class="pillar-body" id="pillar-panel-4" role="region" aria-labelledby="pillar-button-4" inert>
+            <div class="pillar-body-inner">
+              <div class="pillar-content">
+                <p>A new market deserves more than an old playbook. We help you choose your next opportunity, pressure-test the proposition, and build a practical route from first foothold to lasting traction.</p>
+                <div class="pillar-details">
+                  <div class="pillar-tags"><span>Go-to-market playbooks</span><span>New horizons</span></div>
+                  <button class="pillar-cta" data-contact data-interest="Market expansion">Make your next move <span aria-hidden="true">↗</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="impact" id="impact" aria-labelledby="impact-heading">
+      <div class="shell">
+        <div class="impact-head">
+          <div>
+            <div class="section-label eyebrow"><span class="index">03 /</span><span>Forward, in figures</span></div>
+            <h2 class="section-title" id="impact-heading">Small word. <span class="serif">Big difference.</span></h2>
+          </div>
+          <p class="impact-note">Behind every number, people.<br>Behind every move, a little how.</p>
+        </div>
+        <div class="metrics">
+          <div class="metric">
+            <span class="metric-value" aria-label="30 plus"><span class="counter" data-target="30">30</span><span class="suffix" aria-hidden="true">+</span></span>
+            <span class="metric-label">Ambitious teams, aligned.</span>
+            <span class="metric-sub">From early chapters to next stages.</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value" aria-label="12"><span class="counter" data-target="12">12</span></span>
+            <span class="metric-label">New markets, unlocked.</span>
+            <span class="metric-sub">Taking the next step, together.</span>
+          </div>
+          <div class="metric">
+            <span class="metric-value" aria-label="1"><span class="counter" data-target="1">1</span><span class="suffix" aria-hidden="true">↗</span></span>
+            <span class="metric-label">Direction. Yours.</span>
+            <span class="metric-sub">Never an off-the-shelf answer.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact shell" id="contact" aria-labelledby="contact-heading">
+      <div class="contact-top">
+        <div class="section-label eyebrow"><span class="index">04 /</span><span>Your next chapter</span></div>
+        <p>The right question changes everything.<br>Let’s start with yours.</p>
+      </div>
+      <div class="contact-main">
+        <h2 class="contact-title" id="contact-heading">WHAT’S<br>YOUR <span class="serif">HOW?</span></h2>
+        <div class="contact-action">
+          <button class="contact-disc magnetic" data-contact aria-label="Start a conversation">
+            <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"><path d="M10 38 38 10M10 10h28v28" stroke="currentColor" stroke-width="2"/></svg>
+          </button>
+          <p>Let’s find out. Together.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer shell">
+    <a class="logo" href="#top" aria-label="The How Company home">how<span class="logo-dot">.</span>co</a>
+    <span class="copyright">© <span id="year">2026</span> The How Company. Built to move forward.</span>
+    <a class="footer-email text-link" href="mailto:hello@how.co">hello@how.co ↗</a>
+    <a class="back-top" href="#top"><span>Back to the beginning</span><span aria-hidden="true">↑</span></a>
+  </footer>
+
+  <dialog id="contact-dialog" aria-labelledby="dialog-heading">
+    <button class="dialog-close" type="button" aria-label="Close conversation form">×</button>
+    <span class="eyebrow blue">Every next chapter starts somewhere.</span>
+    <h2 id="dialog-heading">Let’s find <span class="serif">your how.</span></h2>
+    <p class="dialog-intro">Tell us a little about you and what’s next. No pitch deck required.</p>
+    <form id="contact-form">
+      <div class="form-row">
+        <div class="field"><label for="contact-name">Your name</label><input id="contact-name" name="name" autocomplete="name" placeholder="Alex Builder" required></div>
+        <div class="field"><label for="contact-email">Work email</label><input id="contact-email" name="email" type="email" autocomplete="email" placeholder="alex@company.com" required></div>
+      </div>
+      <div class="field">
+        <label for="contact-interest">What’s on your mind?</label>
+        <select id="contact-interest" name="interest">
+          <option value="Finding our way forward">Finding our way forward</option>
+          <option>Executive coaching</option>
+          <option>Growth alignment</option>
+          <option>Revenue optimization</option>
+          <option>Market expansion</option>
+        </select>
+      </div>
+      <div class="field"><label for="contact-message">The ambition, the challenge, the big question.</label><textarea id="contact-message" name="message" placeholder="We’re ready for our next chapter, but…" required></textarea></div>
+      <button class="button email-button" type="submit">Compose your introduction <span class="arrow" aria-hidden="true">↗</span></button>
+      <p class="form-note">Opens your email app with a draft. Your details aren’t stored on this site.<br>Prefer the direct route? <a class="text-link" href="mailto:hello@how.co">hello@how.co</a></p>
+      <p class="form-status" id="form-status" role="status" hidden></p>
+    </form>
+  </dialog>
+
+  <script>
+    (() => {
+      const motionPreference = window.matchMedia('(prefers-reduced-motion: reduce)');
+      let reducedMotion = motionPreference.matches;
+      const clamp = (n, min = 0, max = 1) => Math.min(max, Math.max(min, n));
+
+      let letterIndex = 0;
+      document.querySelectorAll('[data-letters]').forEach(word => {
+        const fragment = document.createDocumentFragment();
+        Array.from(word.textContent).forEach(letter => {
+          const span = document.createElement('span');
+          span.className = 'char' + (letter === '.' ? ' period' : '');
+          span.textContent = letter;
+          span.style.setProperty('--delay', `${.12 + letterIndex * .047}s`);
+          fragment.appendChild(span);
+          letterIndex++;
+        });
+        word.replaceChildren(fragment);
+      });
+
+      const progress = document.querySelector('.progress');
+      const conviction = document.querySelector('.conviction');
+      const morphWords = [...document.querySelectorAll('.morph-word')].map(word => ({
+        element: word,
+        from: word.querySelector('.from
